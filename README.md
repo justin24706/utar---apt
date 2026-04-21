@@ -2,7 +2,7 @@
 
 A Progressive Web App (PWA) for UTAR students to track, calculate, and plan their academic performance — works offline, installable on any device.
 
-**[Live Demo →] https://justin24706.github.io/utar---apt/
+**[Live Demo →] https://justin24706.github.io/utar---apt/**
 
 ---
 
