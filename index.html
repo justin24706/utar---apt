@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>UTAR CGPA</title>
+
+<!-- PWA Meta Tags -->
+<meta name="application-name" content="UTAR CGPA">
+<meta name="description" content="CGPA Calculator for UTAR students">
+<meta name="theme-color" content="#0a1f5c">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="UTAR CGPA">
+
+<!-- PWA Icons -->
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+
+<!-- Inline Manifest -->
+<link rel="manifest" href="./manifest.json">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<style>
+  :root {
+    --bg: #f0f2f7;
+    --surface: #ffffff;
+    --surface2: #f5f7fb;
+    --surface3: #e8ecf5;
+    --border: #d0d8ec;
+    --navy: #0a1f5c;
+    --navy-light: #132780;
+    --red: #e8001c;
+    --red-light: #fff0f2;
+    --yellow: #f5d000;
+    --yellow-light: #fffbe6;
+    --green: #1a7a2e;
+    --green-light: #e8f5ec;
+    --text: #0a1030;
+    --text2: #3a4a7a;
+    --text3: #7a8ab0;
+    --radius: 10px;
+    --radius-lg: 14px;
+    --shadow: 0 2px 10px rgba(10,31,92,0.08);
+    --shadow-md: 0 6px 24px rgba(10,31,92,0.13);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Barlow', sans-serif; min-height: 100vh; }
+
+  /* HEADER */
+  .site-header {
+    background: var(--navy);
+    box-shadow: 0 3px 20px rgba(0,0,0,0.25);
+    position: sticky; top: 0; z-index: 50;
+  }
+  .header-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .header-brand { display: flex; align-items: center; gap: 14px; }
+  .utar-logo { height: 48px; width: auto; object-fit: contain; }
+  .brand-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.2); }
+  .brand-text { display: flex; flex-direction: column; gap: 1px; }
+  .brand-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px; font-weight: 800; color: #fff;
+    letter-spacing: 1px; text-transform: uppercase; line-height: 1;
+  }
+  .brand-sub { font-size: 10px; color: var(--yellow); letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+  .header-stripe { height: 4px; background: linear-gradient(90deg, var(--red) 0%, var(--red) 40%, var(--yellow) 60%, var(--yellow) 100%); }
+  .header-actions { display: flex; gap: 8px; }
+
+  /* APP */
+  .app { max-width: 1100px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  /* NAV TABS */
+  .nav-tabs {
+    display: flex; gap: 2px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 4px;
+    margin-bottom: 22px; width: fit-content;
+    box-shadow: var(--shadow);
+  }
+  .nav-tab {
+    padding: 8px 18px; border: none; background: transparent;
+    color: var(--text2); font-family: 'Barlow', sans-serif;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    border-radius: 7px; transition: all 0.15s; letter-spacing: 0.3px;
+  }
+  .nav-tab:hover { color: var(--navy); background: var(--surface3); }
+  .nav-tab.active { background: var(--navy); color: #fff; }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* CARDS */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 22px 24px;
+    margin-bottom: 18px; box-shadow: var(--shadow);
+  }
+  .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 8px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--navy); flex-shrink: 0; }
+  .dot-red { background: var(--red) !important; }
+  .dot-yellow { background: var(--yellow) !important; }
+  .dot-green { background: var(--green) !important; }
+
+  /* BUTTONS */
+  .btn {
+    padding: 8px 16px; border-radius: 7px;
+    font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700;
+    cursor: pointer; border: none; transition: all 0.15s;
+    display: inline-flex; align-items: center; gap: 5px;
+    white-space: nowrap; letter-spacing: 0.3px; text-transform: uppercase;
+  }
+  .btn-primary { background: var(--navy); color: #fff; }
+  .btn-primary:hover { background: var(--navy-light); transform: translateY(-1px); box-shadow: 0 3px 12px rgba(10,31,92,0.3); }
+  .btn-secondary { background: var(--surface2); color: var(--text2); border: 1px solid var(--border); }
+  .btn-secondary:hover { background: var(--surface3); color: var(--navy); }
+  .btn-danger { background: var(--red-light); color: var(--red); border: 1px solid rgba(232,0,28,0.15); }
+  .btn-danger:hover { background: #ffd6da; }
+  .btn-success { background: var(--green-light); color: var(--green); border: 1px solid rgba(26,122,46,0.2); }
+  .btn-success:hover { background: #c8e6cc; }
+  .btn-yellow { background: var(--yellow-light); color: #7a6000; border: 1px solid rgba(245,208,0,0.4); }
+  .btn-yellow:hover { background: #fff3b0; }
+  .btn-sm { padding: 6px 12px; font-size: 11px; }
+  .btn-icon { padding: 7px; border-radius: 7px; background: var(--surface2); color: var(--text3); border: 1px solid var(--border); cursor: pointer; font-size: 13px; transition: all 0.15s; }
+  .btn-icon:hover { color: var(--red); background: var(--red-light); }
+
+  /* FORMS */
+  .form-row { display: grid; gap: 12px; margin-bottom: 12px; }
+  .form-row-3 { grid-template-columns: 2fr 1fr 1fr; }
+  .form-row-2 { grid-template-columns: 1fr 1fr; }
+  label { font-size: 10px; color: var(--text3); letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 5px; font-weight: 700; }
+  input, select {
+    width: 100%; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 7px; padding: 9px 11px; color: var(--text);
+    font-family: 'Barlow', sans-serif; font-size: 13px;
+    transition: border-color 0.15s, box-shadow 0.15s; outline: none;
+  }
+  input:focus, select:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(10,31,92,0.10); }
+  input::placeholder { color: var(--text3); }
+  select option { background: var(--surface); }
+
+  .divider { height: 1px; background: var(--border); margin: 18px 0; }
+
+  /* STATS */
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 20px; }
+  .stat-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 18px;
+    position: relative; overflow: hidden; box-shadow: var(--shadow);
+  }
+  .stat-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--navy); }
+  .stat-box.red::before { background: var(--red); }
+  .stat-box.yellow::before { background: var(--yellow); }
+  .stat-box.green::before { background: var(--green); }
+  .stat-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 6px; font-weight: 700; }
+  .stat-value { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; color: var(--text); line-height: 1; }
+  .stat-value.navy { color: var(--navy); }
+  .stat-value.red { color: var(--red); }
+  .stat-value.yellow { color: #8a6e00; }
+  .stat-value.green { color: var(--green); }
+  .stat-sub { font-size: 11px; color: var(--text3); margin-top: 4px; }
+
+  /* GRADE BADGES */
+  .grade-badge { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+  .grade-easy { background: var(--green-light); color: var(--green); }
+  .grade-medium { background: var(--yellow-light); color: #7a6000; }
+  .grade-hard { background: var(--red-light); color: var(--red); }
+  .grade-impossible { background: var(--surface3); color: var(--text3); }
+
+  /* TARGET TABLE */
+  .target-table { width: 100%; border-collapse: collapse; }
+  .target-table th { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); padding: 7px 10px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 700; }
+  .target-table td { padding: 9px 10px; font-size: 13px; border-bottom: 1px solid rgba(208,216,236,0.5); }
+  .target-table tr:last-child td { border-bottom: none; }
+
+  /* CGPA BAR */
+  .cgpa-progress { margin: 14px 0; }
+  .cgpa-bar-bg { height: 8px; background: var(--surface3); border-radius: 4px; overflow: hidden; margin-top: 8px; }
+  .cgpa-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--red), var(--navy)); transition: width 0.7s ease; }
+  .cgpa-bar-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text3); margin-top: 5px; }
+
+  /* CHIPS */
+  .cgpa-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; }
+  .chip-first { background: var(--yellow-light); color: #7a6000; border: 1px solid rgba(245,208,0,0.4); }
+  .chip-second { background: var(--green-light); color: var(--green); border: 1px solid rgba(26,122,46,0.2); }
+  .chip-third { background: var(--surface3); color: var(--text2); border: 1px solid var(--border); }
+  .chip-pass { background: var(--surface3); color: var(--text3); border: 1px solid var(--border); }
+
+  /* TARGET INPUT ROW */
+  .target-input-row { display: flex; align-items: center; gap: 12px; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 18px; }
+  .target-input-row label { margin: 0; white-space: nowrap; }
+  .target-input-row input { max-width: 110px; }
+
+  /* SEMESTER ROWS */
+  .semester-row { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 9px; transition: all 0.15s; }
+  .semester-row:hover { border-color: var(--navy); box-shadow: 0 2px 8px rgba(10,31,92,0.1); }
+  .sem-info { display: flex; flex-direction: column; gap: 2px; }
+  .sem-name { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.3px; color: var(--navy); }
+  .sem-detail { font-size: 11px; color: var(--text3); }
+  .sem-gpa { text-align: right; }
+  .sem-gpa-val { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; color: var(--navy); }
+  .sem-gpa-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+
+  /* SUBJECT CARDS */
+  .subject-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 10px; overflow: hidden; transition: border-color 0.15s; }
+  .subject-card:hover { border-color: rgba(10,31,92,0.3); }
+  .subject-header { padding: 13px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; }
+  .subject-header:hover { background: rgba(10,31,92,0.03); }
+  .subject-info { display: flex; align-items: center; gap: 10px; }
+  .subject-code { font-size: 11px; color: var(--navy); font-weight: 700; letter-spacing: 0.5px; }
+  .subject-name { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.3px; }
+  .subject-meta { display: flex; align-items: center; gap: 10px; }
+  .subject-credits { font-size: 11px; color: var(--text3); }
+  .subject-score { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; }
+  .subject-body { padding: 0 16px 16px; border-top: 1px solid var(--border); display: none; }
+  .subject-body.open { display: block; padding-top: 14px; }
+  .chevron { transition: transform 0.2s; color: var(--text3); font-size: 11px; }
+  .chevron.open { transform: rotate(180deg); }
+
+  /* CW ROWS */
+  .cw-row { display: grid; grid-template-columns: 2fr 70px 70px 70px 70px 32px; gap: 7px; align-items: center; margin-bottom: 7px; }
+  .cw-row input { padding: 6px 9px; font-size: 12px; }
+  .cw-total-row { display: flex; justify-content: space-between; padding: 9px 11px; background: var(--surface); border-radius: 7px; margin-top: 7px; font-size: 12px; color: var(--text2); border: 1px solid var(--border); }
+  .cw-total-row span:last-child { font-weight: 700; color: var(--navy); }
+
+  /* UPLOAD */
+  .upload-zone { border: 2px dashed var(--border); border-radius: var(--radius-lg); padding: 40px; text-align: center; cursor: pointer; transition: all 0.2s; background: var(--surface2); }
+  .upload-zone:hover, .upload-zone.dragging { border-color: var(--navy); background: rgba(10,31,92,0.04); }
+  .upload-icon { font-size: 36px; margin-bottom: 10px; }
+  .upload-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 5px; letter-spacing: 0.3px; }
+  .upload-sub { font-size: 12px; color: var(--text3); }
+  #pdf-input { display: none; }
+
+  /* IMPORT PREVIEW */
+  .import-preview { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-top: 16px; display: none; }
+  .import-subject-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid rgba(208,216,236,0.5); font-size: 12px; }
+  .import-subject-row:last-child { border-bottom: none; }
+
+  /* ANALYSIS */
+  .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .analysis-grid { grid-template-columns: 1fr; } }
+  .analysis-subject { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; display: flex; align-items: center; gap: 10px; }
+  .analysis-icon { font-size: 16px; }
+  .analysis-info { flex: 1; }
+  .analysis-name { font-size: 12px; font-weight: 600; }
+  .analysis-detail { font-size: 11px; color: var(--text3); margin-top: 1px; }
+  .analysis-badge { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; }
+
+  /* MODAL */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(10,16,48,0.6); z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(3px); }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; width: 100%; max-width: 600px; max-height: 85vh; overflow-y: auto; box-shadow: var(--shadow-md); }
+  .modal-title { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 18px; color: var(--navy); letter-spacing: 0.5px; text-transform: uppercase; }
+
+  /* TOAST */
+  .toast { position: fixed; bottom: 24px; right: 24px; background: var(--navy); color: white; border-radius: var(--radius); padding: 11px 18px; font-size: 13px; font-weight: 600; z-index: 1000; transform: translateY(70px); opacity: 0; transition: all 0.3s; box-shadow: var(--shadow-md); border-left: 4px solid var(--yellow); }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* EMPTY STATES */
+  .empty-state { text-align: center; padding: 40px 24px; color: var(--text3); }
+  .empty-state-icon { font-size: 36px; margin-bottom: 10px; }
+  .empty-state-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; color: var(--text2); margin-bottom: 5px; letter-spacing: 0.3px; }
+  .empty-state-sub { font-size: 12px; }
+
+  /* MISC */
+  .section-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text3); margin-bottom: 10px; font-weight: 700; }
+  .sem-subjects-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  .sem-subjects-table th { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); padding: 6px 10px; text-align: left; font-weight: 700; }
+  .sem-subjects-table td { font-size: 12px; padding: 8px 10px; border-top: 1px solid rgba(208,216,236,0.5); }
+  .sem-subjects-table tr:hover td { background: var(--surface3); }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+  .calculating { animation: pulse 1s infinite; }
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <img class="utar-logo" src="data:image/png;base64,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" alt="UTAR Logo">
+      <div class="brand-divider"></div>
+      <div class="brand-text">
+        <div class="brand-name">CGPA Calculator</div>
+        <div class="brand-sub">Academic Performance Tracker</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-sm" style="background:rgba(255,255,255,0.12);color:white;border:1px solid rgba(255,255,255,0.2);text-transform:uppercase;font-size:12px;height:34px;padding:0 14px" onclick="exportData()">⬆ Export</button>
+      <label class="btn btn-sm" style="background:rgba(255,255,255,0.12);color:white;border:1px solid rgba(255,255,255,0.2);text-transform:uppercase;cursor:pointer;font-size:12px;height:34px;padding:0 14px;display:inline-flex;align-items:center">
+        ⬇ Import
+        <input type="file" id="json-import" accept=".json" style="display:none" onchange="importData(event)">
+      </label>
+      <button class="btn btn-sm" style="background:rgba(232,0,28,0.25);color:#ffaaaa;border:1px solid rgba(232,0,28,0.3);text-transform:uppercase;font-size:12px;height:34px;padding:0 14px" onclick="clearAllData()" title="Clear all data">🗑 Clear</button>
+    </div>
+  </div>
+  <div class="header-stripe"></div>
+</div>
+
+<div class="app">
+  <div class="nav-tabs" style="margin-top:18px">
+    <button class="nav-tab active" onclick="switchTab('dashboard')">Dashboard</button>
+    <button class="nav-tab" onclick="switchTab('current')">Current Sem</button>
+    <button class="nav-tab" onclick="switchTab('history')">History</button>
+    <button class="nav-tab" onclick="switchTab('analysis')">Analysis</button>
+    <button class="nav-tab" onclick="switchTab('import')">Import PDF</button>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="page-dashboard" class="page active">
+    <!-- Greeting banner -->
+    <div class="card" style="margin-bottom:18px;padding:18px 24px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:var(--navy)" id="greeting-text">Welcome!</div>
+          <div style="font-size:12px;color:var(--text3);margin-top:2px" id="greeting-datetime"></div>
+        </div>
+        <button onclick="promptEditName()" style="background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;color:var(--text3);font-size:12px;padding:4px 8px;border-radius:6px;transition:all 0.15s" onmouseover="this.style.background='var(--surface3)';this.style.color='var(--navy)'" onmouseout="this.style.background='none';this.style.color='var(--text3)'" id="edit-name-btn">
+          <span style="font-size:14px">✏️</span> <span id="edit-name-label">Set name</span>
+        </button>
+      </div>
+    </div>
+    <div class="stats-grid" id="dashboard-stats">
+      <div class="stat-box"><div class="stat-label">Current CGPA</div><div class="stat-value navy" id="stat-cgpa">—</div><div class="stat-sub" id="stat-cgpa-class">—</div></div>
+      <div class="stat-box green"><div class="stat-label">Target CGPA</div><div class="stat-value green" id="stat-target">—</div><div class="stat-sub" id="stat-target-gap">Set a target</div></div>
+      <div class="stat-box yellow"><div class="stat-label">Credits Earned</div><div class="stat-value yellow" id="stat-credits">0</div><div class="stat-sub">total credit hours</div></div>
+      <div class="stat-box red"><div class="stat-label">Semesters</div><div class="stat-value red" id="stat-sems">0</div><div class="stat-sub">recorded</div></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title"><div class="dot"></div>CGPA Progress</div><div id="cgpa-class-chip"></div></div>
+      <div class="cgpa-progress">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:12px;color:var(--text3)">0.00</span>
+          <span id="cgpa-progress-label" style="font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;color:var(--navy)">—</span>
+          <span style="font-size:12px;color:var(--text3)">4.00</span>
+        </div>
+        <div class="cgpa-bar-bg"><div class="cgpa-bar-fill" id="cgpa-bar" style="width:0%"></div></div>
+        <div class="cgpa-bar-labels"><span>Fail</span><span>Pass (2.0)</span><span>Second (3.0)</span><span>First (3.5)</span><span>Max</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title"><div class="dot dot-green"></div>Target CGPA</div></div>
+      <div class="target-input-row">
+        <label>Target CGPA</label>
+        <input type="number" id="target-cgpa-input" min="0" max="4" step="0.01" placeholder="e.g. 3.50" style="max-width:120px" oninput="saveTargetCGPA()">
+        <div id="target-status" style="font-size:12px;color:var(--text3)"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><div class="dot dot-yellow"></div>Recent Semesters</div>
+        <button class="btn btn-secondary btn-sm" onclick="switchTab('history')">View All</button>
+      </div>
+      <div id="recent-sems-list"><div class="empty-state"><div class="empty-state-icon">📚</div><div class="empty-state-title">No history yet</div><div class="empty-state-sub">Import your PDF transcript or add semesters in History tab</div></div></div>
+    </div>
+  </div>
+
+  <!-- CURRENT SEM -->
+  <div id="page-current" class="page">
+    <div class="card">
+      <div class="card-header"><div class="card-title"><div class="dot"></div>Current Semester Info</div></div>
+      <div class="form-row form-row-2">
+        <div><label>Semester Name</label><input type="text" id="cur-sem-name" placeholder="e.g. OCTOBER 2025" oninput="recalcCurrent()"></div>
+        <div><label>Prior CGPA (before this sem) <span style="font-size:10px;color:var(--green);font-weight:700">● Auto from history</span></label><input type="number" id="cur-prior-cgpa" min="0" max="4" step="0.01" placeholder="Auto-filled" oninput="this.dataset.userEdited='1';this.style.background='';recalcCurrent()"></div>
+      </div>
+      <div class="form-row form-row-2">
+        <div><label>Prior Credits Earned <span style="font-size:10px;color:var(--green);font-weight:700">● Auto from history</span></label><input type="number" id="cur-prior-credits" min="0" step="1" placeholder="Auto-filled" oninput="this.dataset.userEdited='1';this.style.background='';recalcCurrent()"></div>
+      </div>
+    </div>
+    <div class="stats-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat-box"><div class="stat-label">Est. GPA (target)</div><div class="stat-value navy" id="cur-gpa">—</div></div>
+      <div class="stat-box green"><div class="stat-label">Est. CGPA (target)</div><div class="stat-value green" id="cur-cgpa">—</div></div>
+      <div class="stat-box yellow"><div class="stat-label">Sem Credits</div><div class="stat-value yellow" id="cur-credits">0</div></div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><div class="dot dot-red"></div>Subjects</div>
+        <button class="btn btn-primary btn-sm" onclick="addCurrentSubject()">+ Add Subject</button>
+      </div>
+      <div id="current-subjects-list"></div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <button class="btn btn-success" onclick="saveCurrentSemester()">💾 Save Semester to History</button>
+    </div>
+  </div>
+
+  <!-- HISTORY -->
+  <div id="page-history" class="page">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:0.5px;text-transform:uppercase">Semester History</div>
+        <div style="font-size:12px;color:var(--text3);margin-top:2px">All recorded trimesters</div>
+      </div>
+      <button class="btn btn-primary" onclick="openAddSemModal()">+ Add Semester</button>
+    </div>
+    <div id="history-list"><div class="empty-state"><div class="empty-state-icon">🗂</div><div class="empty-state-title">No semesters recorded</div><div class="empty-state-sub">Import a PDF transcript or add manually</div></div></div>
+  </div>
+
+  <!-- ANALYSIS -->
+  <div id="page-analysis" class="page">
+    <div class="card">
+      <div class="card-header"><div class="card-title"><div class="dot dot-green"></div>Target Analysis</div></div>
+      <div class="target-input-row">
+        <label>Target CGPA</label>
+        <input type="number" id="analysis-target" min="0" max="4" step="0.01" placeholder="e.g. 3.50" style="max-width:120px" oninput="runAnalysis()">
+      </div>
+      <div id="analysis-content"><div class="empty-state"><div class="empty-state-icon">🎯</div><div class="empty-state-title">Set a target CGPA</div><div class="empty-state-sub">Enter your target above to see analysis</div></div></div>
+    </div>
+    <div class="card" id="final-planner-card" style="display:none">
+      <div class="card-header">
+        <div class="card-title"><div class="dot dot-yellow"></div>Final Exam Planner</div>
+        <div style="font-size:11px;color:var(--text3)">Current semester subjects</div>
+      </div>
+      <p style="font-size:12px;color:var(--text3);margin-bottom:16px">Marks needed in final exam to achieve each grade:</p>
+      <div id="final-planner-content"></div>
+    </div>
+  </div>
+
+  <!-- IMPORT PDF -->
+  <div id="page-import" class="page">
+
+    <!-- SECTION 1: Transcript PDF -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><div class="dot"></div>Import Transcript PDF</div>
+        <span style="font-size:11px;color:var(--text3);background:var(--surface3);padding:3px 10px;border-radius:20px">Academic Result</span>
+      </div>
+      <p style="font-size:12px;color:var(--text3);margin-bottom:16px">Import all past semester results from your UTAR academic transcript.</p>
+      <div style="background:var(--yellow-light);border:1px solid rgba(245,208,0,0.5);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:12px;color:#7a6000"><b>⚠ Note:</b> PDF import requires an internet connection to load the PDF reader engine.</div>
+      <div class="upload-zone" id="upload-zone" onclick="document.getElementById('pdf-input').click()"
+        ondragover="event.preventDefault();this.classList.add('dragging')"
+        ondragleave="this.classList.remove('dragging')"
+        ondrop="handleDrop(event)">
+        <div class="upload-icon">📋</div>
+        <div class="upload-title">Drop Transcript PDF here</div>
+        <div class="upload-sub">UTAR Academic Transcript — imports past semester grades</div>
+      </div>
+      <input type="file" id="pdf-input" accept=".pdf" onchange="handlePDFUpload(event)">
+      <div id="pdf-processing" style="display:none;text-align:center;padding:20px;color:var(--text3);font-size:13px">⏳ Reading transcript...</div>
+      <div id="import-preview" class="import-preview">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Preview</div>
+          <button class="btn btn-success" onclick="confirmImport()">✓ Import to History</button>
+        </div>
+        <div id="import-preview-content"></div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: School Bill PDF -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><div class="dot dot-yellow"></div>Import School Bill PDF</div>
+        <span style="font-size:11px;color:#7a6000;background:var(--yellow-light);padding:3px 10px;border-radius:20px;border:1px solid rgba(245,208,0,0.4)">Current Semester</span>
+      </div>
+      <p style="font-size:12px;color:var(--text3);margin-bottom:16px">Upload your UTAR tuition fee bill to automatically load this semester's courses into <b>Current Sem</b>. Includes course code, name, and credit hours.</p>
+      <div style="background:var(--yellow-light);border:1px solid rgba(245,208,0,0.5);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:12px;color:#7a6000"><b>⚠ Note:</b> PDF import requires an internet connection to load the PDF reader engine.</div>
+      <div class="upload-zone" id="bill-upload-zone" onclick="document.getElementById('bill-pdf-input').click()"
+        ondragover="event.preventDefault();this.classList.add('dragging')"
+        ondragleave="this.classList.remove('dragging')"
+        ondrop="handleBillDrop(event)"
+        style="border-color:rgba(245,208,0,0.5);background:var(--yellow-light)">
+        <div class="upload-icon">🧾</div>
+        <div class="upload-title">Drop School Bill PDF here</div>
+        <div class="upload-sub">UTAR Tuition Fee Invoice — loads courses into Current Sem</div>
+      </div>
+      <input type="file" id="bill-pdf-input" accept=".pdf" onchange="handleBillUpload(event)">
+      <div id="bill-processing" style="display:none;text-align:center;padding:20px;color:var(--text3);font-size:13px">⏳ Reading bill...</div>
+      <div id="bill-preview" class="import-preview">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Courses Found</div>
+          <button class="btn btn-yellow" onclick="confirmBillImport()">→ Load into Current Sem</button>
+        </div>
+        <div id="bill-preview-content"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<div style="text-align:center;padding:24px 20px 32px;color:var(--text3);font-size:11px;border-top:1px solid var(--border);margin-top:8px">
+  <div style="margin-bottom:4px">
+    <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--navy);font-size:13px;letter-spacing:0.5px">UTAR CGPA Calculator</span>
+    <span style="margin:0 8px;color:var(--border)">·</span>
+    <span style="background:var(--navy);color:white;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;letter-spacing:0.5px">v1.0.0</span>
+  </div>
+  <div style="margin-top:5px">Built for UTAR students &nbsp;·&nbsp; Made by <span style="color:var(--navy);font-weight:600">Justin</span></div>
+</div>
+
+<!-- Name Modal -->
+<div class="modal-overlay" id="name-modal" style="z-index:200">
+  <div class="modal" style="max-width:380px;text-align:center;padding:36px 32px">
+    <div style="font-size:40px;margin-bottom:12px">👋</div>
+    <div class="modal-title" style="text-align:center;font-size:22px;margin-bottom:6px" id="name-modal-title">Welcome to UTAR CGPA Calculator</div>
+    <div style="font-size:13px;color:var(--text3);margin-bottom:24px" id="name-modal-sub">What should we call you?</div>
+    <input type="text" id="name-modal-input" placeholder="Your name..." style="text-align:center;font-size:16px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.5px;padding:12px;margin-bottom:16px" maxlength="30" onkeydown="if(event.key==='Enter')confirmName()">
+    <button class="btn btn-primary" style="width:100%;padding:12px;font-size:14px" onclick="confirmName()">Let's Go →</button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="add-sem-modal">
+  <div class="modal">
+    <div id="modal-subjects"></div>
+    <div class="divider"></div>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveModalSemester()">Save</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ===================== STATE =====================
+let state = {
+  targetCGPA: null,
+  semesters: [],        // [{id, name, gpa, credits, subjects:[{code,name,credits,grade,gradePoint}]}]
+  currentSubjects: [],  // [{id, code, name, credits, finalPct, cwItems:[{name,weight,outOf,score}]}]
+  currentSemName: '',
+  priorCGPA: null,
+  priorCredits: null,
+};
+
+// ===================== GRADE TABLES =====================
+const UTAR_GRADES = [
+  { grade: 'A+', minMark: 90, gradePoint: 4.00 },
+  { grade: 'A',  minMark: 80, gradePoint: 4.00 },
+  { grade: 'A-', minMark: 75, gradePoint: 3.67 },
+  { grade: 'B+', minMark: 70, gradePoint: 3.33 },
+  { grade: 'B',  minMark: 65, gradePoint: 3.00 },
+  { grade: 'B-', minMark: 60, gradePoint: 2.67 },
+  { grade: 'C+', minMark: 55, gradePoint: 2.33 },
+  { grade: 'C',  minMark: 50, gradePoint: 2.00 },
+  { grade: 'F',  minMark:  0, gradePoint: 0.00 },
+];
+
+const GRADE_OPTIONS = ['A+','A','A-','B+','B','B-','C+','C','D','F','PS'];
+
+function gradeToPoint(g) {
+  const map = {'A+':4,'A':4,'A-':3.67,'B+':3.33,'B':3,'B-':2.67,'C+':2.33,'C':2,'D':1,'F':0,'PS':null};
+  return map[g] ?? null;
+}
+
+function markToGrade(mark) {
+  for (const g of UTAR_GRADES) {
+    if (mark >= g.minMark) return g;
+  }
+  return UTAR_GRADES[UTAR_GRADES.length-1];
+}
+
+function cgpaClass(cgpa) {
+  if (cgpa >= 3.50) return { label: 'First Class', chip: 'chip-first' };
+  if (cgpa >= 3.00) return { label: 'Second Upper', chip: 'chip-second' };
+  if (cgpa >= 2.50) return { label: 'Second Lower', chip: 'chip-third' };
+  if (cgpa >= 2.00) return { label: 'Pass', chip: 'chip-pass' };
+  return { label: 'Below Pass', chip: 'chip-pass' };
+}
+
+// ===================== STORAGE =====================
+function loadState() {
+  const s = localStorage.getItem('utar_cgpa_state');
+  if (s) { try { state = JSON.parse(s); } catch(e) {} }
+}
+function saveState() {
+  localStorage.setItem('utar_cgpa_state', JSON.stringify(state));
+}
+
+// ===================== TABS =====================
+function switchTab(tab) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + tab).classList.add('active');
+  const tabs = ['dashboard','current','history','analysis','import'];
+  const idx = tabs.indexOf(tab);
+  document.querySelectorAll('.nav-tab')[idx].classList.add('active');
+  if (tab === 'dashboard') renderDashboard();
+  if (tab === 'history') renderHistory();
+  if (tab === 'analysis') {
+    const t = document.getElementById('analysis-target');
+    if (state.targetCGPA) t.value = state.targetCGPA;
+    renderAnalysis();
+    renderFinalPlanner();
+  }
+}
+
+// ===================== CALC HELPERS =====================
+function calcCGPA(semesters) {
+  let totalQP = 0, totalCredits = 0;
+  for (const sem of semesters) {
+    for (const sub of (sem.subjects || [])) {
+      const gp = gradeToPoint(sub.grade);
+      if (gp === null) continue; // PS excluded
+      totalQP += gp * sub.credits;
+      totalCredits += sub.credits;
+    }
+  }
+  if (totalCredits === 0) return null;
+  return totalQP / totalCredits;
+}
+
+function calcGPA(subjects) {
+  let totalQP = 0, totalCredits = 0;
+  for (const sub of subjects) {
+    const gp = gradeToPoint(sub.grade);
+    if (gp === null) continue;
+    totalQP += gp * sub.credits;
+    totalCredits += sub.credits;
+  }
+  if (totalCredits === 0) return null;
+  return totalQP / totalCredits;
+}
+
+function totalCreditsEarned(semesters) {
+  let c = 0;
+  for (const sem of semesters)
+    for (const sub of (sem.subjects || []))
+      c += sub.credits;
+  return c;
+}
+
+// ===================== DASHBOARD =====================
+function renderDashboard() {
+  const cgpa = calcCGPA(state.semesters);
+  const credits = totalCreditsEarned(state.semesters);
+  const sems = state.semesters.length;
+
+  // Stats
+  document.getElementById('stat-cgpa').textContent = cgpa !== null ? cgpa.toFixed(4) : '—';
+  document.getElementById('stat-credits').textContent = credits;
+  document.getElementById('stat-sems').textContent = sems;
+
+  if (cgpa !== null) {
+    const cls = cgpaClass(cgpa);
+    document.getElementById('stat-cgpa-class').textContent = cls.label;
+    document.getElementById('cgpa-class-chip').innerHTML = `<span class="cgpa-chip ${cls.chip}">${cls.label}</span>`;
+    document.getElementById('cgpa-bar').style.width = (cgpa / 4 * 100) + '%';
+    document.getElementById('cgpa-progress-label').textContent = cgpa.toFixed(4);
+  }
+
+  if (state.targetCGPA) {
+    document.getElementById('stat-target').textContent = parseFloat(state.targetCGPA).toFixed(2);
+    document.getElementById('target-cgpa-input').value = state.targetCGPA;
+    document.getElementById('analysis-target').value = state.targetCGPA;
+    if (cgpa !== null) {
+      const gap = state.targetCGPA - cgpa;
+      const el = document.getElementById('stat-target-gap');
+      if (gap > 0) { el.textContent = `↑ ${gap.toFixed(4)} to go`; el.style.color = 'var(--accent2)'; }
+      else { el.textContent = '✓ Target reached!'; el.style.color = 'var(--accent3)'; }
+    }
+  }
+
+  // Recent sems
+  const el = document.getElementById('recent-sems-list');
+  if (sems === 0) {
+    el.innerHTML = `<div class="empty-state"><div class="empty-state-icon">📚</div><div class="empty-state-title">No history yet</div><div class="empty-state-sub">Import your PDF transcript or add semesters in History tab</div></div>`;
+    return;
+  }
+  const recent = [...state.semesters].reverse().slice(0, 3);
+  el.innerHTML = recent.map(sem => semRowHTML(sem)).join('');
+}
+
+function semRowHTML(sem) {
+  const gpa = sem.gpa ?? calcGPA(sem.subjects || []);
+  const gpaStr = gpa !== null ? gpa.toFixed(4) : '—';
+  const credits = (sem.subjects||[]).reduce((a,s)=>a+s.credits,0);
+  return `<div class="semester-row">
+    <div class="sem-info">
+      <div class="sem-name">${sem.name}</div>
+      <div class="sem-detail">${(sem.subjects||[]).length} subjects · ${credits} credits</div>
+    </div>
+    <div class="sem-gpa">
+      <div class="sem-gpa-val">${gpaStr}</div>
+      <div class="sem-gpa-label">GPA</div>
+    </div>
+  </div>`;
+}
+
+function saveTargetCGPA() {
+  const v = parseFloat(document.getElementById('target-cgpa-input').value);
+  if (!isNaN(v) && v >= 0 && v <= 4) {
+    state.targetCGPA = v;
+    saveState();
+    const cgpa = calcCGPA(state.semesters);
+    if (cgpa !== null) {
+      const gap = v - cgpa;
+      const el = document.getElementById('target-status');
+      if (gap > 0) { el.textContent = `Gap: ${gap.toFixed(4)}`; el.style.color = 'var(--accent2)'; }
+      else { el.textContent = '✓ Already reached!'; el.style.color = 'var(--accent3)'; }
+    }
+    document.getElementById('stat-target').textContent = v.toFixed(2);
+    document.getElementById('analysis-target').value = v;
+  }
+}
+
+// ===================== CURRENT SEMESTER =====================
+let cwIdCounter = 0;
+let subIdCounter = 0;
+
+function addCurrentSubject() {
+  const id = ++subIdCounter;
+  state.currentSubjects.push({
+    id, code: '', name: '', credits: 3, finalPct: 40, targetGrade: 'B+', isPassFail: false,
+    cwItems: [{ name: 'Assignment', weight: 20, outOf: 100, score: 0 },
+              { name: 'Midterm',    weight: 20, outOf: 100, score: 0 },
+              { name: 'Project',    weight: 20, outOf: 100, score: 0 }],
+    collapsed: false
+  });
+  saveState();
+  renderCurrentSubjects();
+}
+
+function renderCurrentSubjects() {
+  const el = document.getElementById('current-subjects-list');
+  if (state.currentSubjects.length === 0) {
+    el.innerHTML = `<div class="empty-state"><div class="empty-state-icon">📝</div><div class="empty-state-title">No subjects yet</div><div class="empty-state-sub">Click "+ Add Subject" to get started</div></div>`;
+    recalcCurrent();
+    return;
+  }
+  el.innerHTML = state.currentSubjects.map(sub => renderSubjectCard(sub)).join('');
+  recalcCurrent();
+}
+
+function getTargetGradeField(sub) {
+  if (sub.isPassFail) {
+    return '<div style="padding:8px 11px;background:#e3f2fd;border-radius:7px;font-size:12px;color:#0d47a1;font-weight:700;border:1px solid #90caf9">Pass / Fail — not counted in CGPA</div>';
+  }
+  const opts = ['A+','A','A-','B+','B','B-','C+','C'].map(function(g) {
+    return '<option value="' + g + '"' + (g === (sub.targetGrade || 'B+') ? ' selected' : '') + '>' + g + '</option>';
+  }).join('');
+  return '<select onchange="updateSubField(' + sub.id + ',\'targetGrade\',this.value)" style="border:2px solid var(--yellow);font-weight:700">' + opts + '</select>';
+}
+
+function renderPassFailStatus(sub) {
+  const total = calcCWTotal(sub);
+  const passing = total >= 50;
+  return `<div class="section-label">Pass/Fail Status</div>
+  <div style="padding:14px 16px;border-radius:10px;border:2px solid ${passing ? 'rgba(26,122,46,0.3)' : 'rgba(232,0,28,0.3)'};background:${passing ? 'var(--green-light)' : 'var(--red-light)'};display:flex;align-items:center;gap:12px">
+    <span style="font-size:24px">${passing ? '✅' : '❌'}</span>
+    <div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;color:${passing ? 'var(--green)' : 'var(--red)'}">${passing ? 'ON TRACK TO PASS' : 'BELOW PASSING MARK'}</div>
+      <div style="font-size:12px;color:var(--text3);margin-top:2px">Current score: ${total.toFixed(1)} / 100 — need 50 to pass</div>
+    </div>
+  </div>`;
+}
+
+function getTargetBadge(sub) {
+  if (sub.isPassFail) {
+    return '<span style="font-size:11px;font-weight:700;background:#e3f2fd;color:#0d47a1;padding:2px 8px;border-radius:10px;border:1px solid #90caf9">P/F</span>';
+  }
+  return '<span style="font-size:11px;font-weight:700;background:var(--yellow);color:#5a4400;padding:2px 8px;border-radius:10px">\u{1F3AF} ' + (sub.targetGrade || 'B+') + '</span>';
+}
+
+function renderSubjectCard(sub) {
+  const cwTotal = calcCWTotal(sub);
+  const finalPct = (sub.finalPct != null && sub.finalPct !== '') ? sub.finalPct : 40;
+  return `<div class="subject-card" id="sub-${sub.id}">
+    <div class="subject-header" onclick="toggleSubject(${sub.id})">
+      <div class="subject-info">
+        <div>
+          <div class="subject-code">${sub.code || 'CODE'}</div>
+          <div class="subject-name">${sub.name || 'Subject Name'}</div>
+        </div>
+      </div>
+      <div class="subject-meta">
+        <div class="subject-credits">${sub.credits} cr${sub.isPassFail ? ' · Pass/Fail' : ' · Final ' + finalPct + '%'}</div>
+        ${getTargetBadge(sub)}
+        <div class="subject-score" style="color:${cwTotal>=70?'var(--green)':cwTotal>=50?'#7a6000':'var(--red)'}">CW: ${cwTotal.toFixed(1)}</div>
+        <button class="btn-icon" onclick="event.stopPropagation();removeCurrentSubject(${sub.id})">✕</button>
+        <div class="chevron ${!sub.collapsed?'open':''}">▼</div>
+      </div>
+    </div>
+    <div class="subject-body ${!sub.collapsed?'open':''}">
+      <div class="form-row form-row-3" style="margin-bottom:14px">
+        <div>
+          <label>Course Code</label>
+          <input type="text" placeholder="e.g. UCCD2123" value="${sub.code}" oninput="updateSubField(${sub.id},'code',this.value)">
+        </div>
+        <div>
+          <label>Credits</label>
+          <input type="number" min="1" max="6" value="${sub.credits}" oninput="updateSubField(${sub.id},'credits',+this.value)">
+        </div>
+        ${sub.isPassFail ? '' : `<div>
+          <label>Final Exam %</label>
+          <input type="number" min="0" max="100" value="${sub.finalPct}" oninput="updateSubField(${sub.id},'finalPct',this.value===''?40:+this.value)">
+        </div>`}
+      </div>
+      <div class="form-row form-row-2" style="margin-bottom:14px">
+        <div>
+          <label>Course Name</label>
+          <input type="text" placeholder="e.g. User Experience Design" value="${sub.name}" oninput="updateSubField(${sub.id},'name',this.value)">
+        </div>
+        <div>
+          <label>🎯 Target Grade</label>
+          ${getTargetGradeField(sub)}
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--surface3);border-radius:8px;margin-bottom:14px;border:1px solid var(--border)">
+        <input type="checkbox" id="pf-${sub.id}" ${sub.isPassFail?'checked':''} onchange="togglePassFail(${sub.id},this.checked)" style="width:16px;height:16px;accent-color:var(--navy);cursor:pointer">
+        <label for="pf-${sub.id}" style="margin:0;font-size:12px;color:var(--text2);text-transform:none;letter-spacing:0;cursor:pointer;font-weight:600">This is a <b>Pass/Fail</b> subject (e.g. MPU co-curriculum) — will not count towards CGPA</label>
+      </div>
+
+      <div class="section-label">Coursework Breakdown</div>
+      <div style="display:grid;grid-template-columns:2fr 70px 70px 70px 70px 32px;gap:8px;margin-bottom:6px">
+        <span style="font-size:10px;color:var(--text3)">Component</span>
+        <span style="font-size:10px;color:var(--text3)">Weight%</span>
+        <span style="font-size:10px;color:var(--text3)">Out Of</span>
+        <span style="font-size:10px;color:var(--text3)">Score</span>
+        <span style="font-size:10px;color:var(--text3)">Scaled</span>
+        <span></span>
+      </div>
+      ${sub.cwItems.map((cw,i) => renderCWRow(sub.id, i, cw)).join('')}
+      <button class="btn btn-secondary btn-sm" style="margin-top:6px" onclick="addCWItem(${sub.id})">+ Add Component</button>
+
+      <div class="cw-total-row">
+        <span>${sub.isPassFail ? 'Total Score (100%)' : 'Total CW (' + (100-(sub.finalPct||40)) + '%)'}</span>
+        <span>${cwTotal.toFixed(2)} / ${sub.isPassFail ? 100 : (100-(sub.finalPct||40))}</span>
+      </div>
+
+      <div class="divider"></div>
+      ${sub.isPassFail
+        ? renderPassFailStatus(sub)
+        : '<div class="section-label">Final Exam Target</div>' + renderFinalTarget(sub)
+      }
+    </div>
+  </div>`;
+}
+
+function renderCWRow(subId, idx, cw) {
+  const scaled = cw.outOf > 0 ? (cw.score / cw.outOf * cw.weight).toFixed(1) : '0.0';
+  return `<div class="cw-row">
+    <input type="text" placeholder="Component name" value="${cw.name}" oninput="updateCW(${subId},${idx},'name',this.value)">
+    <input type="number" min="0" max="100" placeholder="%" value="${cw.weight}" oninput="updateCW(${subId},${idx},'weight',+this.value)">
+    <input type="number" min="0" placeholder="100" value="${cw.outOf}" oninput="updateCW(${subId},${idx},'outOf',+this.value)">
+    <input type="number" min="0" placeholder="0" value="${cw.score}" oninput="updateCW(${subId},${idx},'score',+this.value)">
+    <input type="text" value="${scaled}" readonly style="color:var(--text3);cursor:default">
+    <button class="btn-icon btn-danger" style="padding:4px 8px;font-size:11px" onclick="removeCWItem(${subId},${idx})">✕</button>
+  </div>`;
+}
+
+function renderFinalTarget(sub) {
+  const cwTotal = calcCWTotal(sub);
+  const finalPct = (sub.finalPct != null && sub.finalPct !== '') ? sub.finalPct : 40;
+  const rows = UTAR_GRADES.slice(0, -1).map(g => {
+    const needed = (g.minMark - cwTotal) / (finalPct / 100);
+    const pct = needed / 100 * finalPct; // marks in final
+    const impossibleOrNegative = needed > 100;
+    const alreadyReached = needed <= 0;
+    let cls = 'grade-medium', status = '';
+    if (alreadyReached) { cls = 'grade-easy'; status = '✓ Already reached'; }
+    else if (impossibleOrNegative) { cls = 'grade-impossible'; status = 'Not possible'; }
+    else if (needed >= 80) cls = 'grade-hard';
+    else if (needed >= 60) cls = 'grade-medium';
+    else cls = 'grade-easy';
+
+    const isTarget = g.grade === (sub.targetGrade || 'B+');
+    return `<tr style="${isTarget ? 'background:var(--yellow-light);outline:2px solid var(--yellow);outline-offset:-2px;border-radius:6px' : ''}">
+      <td><span class="grade-badge ${cls}">${g.grade}</span>${isTarget ? ' <span style="font-size:10px;font-weight:700;color:#7a6000;background:var(--yellow);padding:1px 6px;border-radius:10px;margin-left:4px">TARGET</span>' : ''}</td>
+      <td style="color:var(--text2)">${g.minMark}%</td>
+      <td style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;${impossibleOrNegative?'color:var(--text3)':alreadyReached?'color:var(--green)':needed>=80?'color:var(--red)':'color:var(--navy)'}">${alreadyReached ? '—' : impossibleOrNegative ? 'N/A' : needed.toFixed(1)+'%'}</td>
+      <td style="font-size:11px;color:var(--text3)">${status}</td>
+    </tr>`;
+  }).join('');
+
+  return `<table class="target-table">
+    <thead><tr><th>Target Grade</th><th>Min Total</th><th>Need in Final</th><th>Status</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+}
+
+function calcCWTotal(sub) {
+  let total = 0;
+  // For P/F subjects finalPct=0 so CW is out of 100; otherwise CW is (100-finalPct)
+  const fp = sub.isPassFail ? 0 : (sub.finalPct != null && sub.finalPct !== '' ? sub.finalPct : 40);
+  const cwPct = 100 - fp;
+  let weightSum = 0;
+  for (const cw of sub.cwItems) {
+    if (cw.outOf > 0) {
+      total += (cw.score / cw.outOf) * cw.weight;
+      weightSum += cw.weight;
+    }
+  }
+  if (weightSum === 0) return 0;
+  return total * (cwPct / weightSum);
+}
+
+function toggleSubject(id) {
+  const sub = state.currentSubjects.find(s => s.id === id);
+  if (sub) { sub.collapsed = !sub.collapsed; renderCurrentSubjects(); }
+}
+
+function updateSubField(id, field, val) {
+  const sub = state.currentSubjects.find(s => s.id === id);
+  if (!sub) return;
+  sub[field] = val;
+  saveState();
+
+  const cwTotal = calcCWTotal(sub);
+  const fp = (sub.finalPct != null && sub.finalPct !== '') ? sub.finalPct : 40;
+
+  // Update header
+  const creditsEl = document.querySelector('#sub-' + id + ' .subject-credits');
+  if (creditsEl) creditsEl.textContent = sub.credits + ' cr · Final ' + fp + '%';
+
+  const scoreEl = document.querySelector('#sub-' + id + ' .subject-score');
+  if (scoreEl) {
+    scoreEl.textContent = 'CW: ' + cwTotal.toFixed(1);
+    scoreEl.style.color = cwTotal >= 70 ? 'var(--green)' : cwTotal >= 50 ? '#7a6000' : 'var(--red)';
+  }
+
+  const codeEl = document.querySelector('#sub-' + id + ' .subject-code');
+  if (codeEl) codeEl.textContent = sub.code || 'CODE';
+
+  const nameEl = document.querySelector('#sub-' + id + ' .subject-name');
+  if (nameEl) nameEl.textContent = sub.name || 'Subject Name';
+
+  // If finalPct changed, update CW total row
+  if (field === 'finalPct') {
+    // Validate: 0-100 range
+    if (val < 0) val = sub.finalPct = 0;
+    if (val > 100) val = sub.finalPct = 100;
+    const totalEl = document.querySelector('#sub-' + id + ' .cw-total-row span:last-child');
+    if (totalEl) totalEl.textContent = cwTotal.toFixed(2) + ' / ' + (100 - fp);
+    const totalLabelEl = document.querySelector('#sub-' + id + ' .cw-total-row span:first-child');
+    if (totalLabelEl) totalLabelEl.textContent = 'Total CW (' + (100 - fp) + '%)';
+    // Refresh final target table
+    const bodyEl = document.querySelector('#sub-' + id + ' .subject-body');
+    if (bodyEl && bodyEl.classList.contains('open')) {
+      const existing = bodyEl.querySelector('.target-table');
+      if (existing) {
+        const temp = document.createElement('div');
+        temp.innerHTML = renderFinalTarget(sub);
+        existing.replaceWith(temp.firstElementChild);
+      }
+    }
+  }
+
+  recalcCurrent();
+}
+
+function updateCW(subId, idx, field, val) {
+  const sub = state.currentSubjects.find(s => s.id === subId);
+  if (!sub) return;
+
+  sub.cwItems[idx][field] = val;
+  saveState();
+
+  const cwTotal = calcCWTotal(sub);
+  const fp = (sub.finalPct != null && sub.finalPct !== '') ? sub.finalPct : 40;
+
+  // 1. Update scaled value in the changed row
+  const rows = document.querySelectorAll('#sub-' + subId + ' .cw-row');
+  if (rows[idx]) {
+    const cw = sub.cwItems[idx];
+    const scaled = cw.outOf > 0 ? (cw.score / cw.outOf * cw.weight).toFixed(1) : '0.0';
+    const inputs = rows[idx].querySelectorAll('input');
+    if (inputs[4]) inputs[4].value = scaled;
+  }
+
+  // 2. Update Total CW row
+  const totalEl = document.querySelector('#sub-' + subId + ' .cw-total-row span:last-child');
+  if (totalEl) totalEl.textContent = cwTotal.toFixed(2) + ' / ' + (100 - fp);
+
+  // 3. Update Total CW label (left side)
+  const totalLabelEl = document.querySelector('#sub-' + subId + ' .cw-total-row span:first-child');
+  if (totalLabelEl) totalLabelEl.textContent = 'Total CW (' + (100 - fp) + '%)';
+
+  // 4. Update header CW badge
+  const scoreEl = document.querySelector('#sub-' + subId + ' .subject-score');
+  if (scoreEl) {
+    scoreEl.textContent = 'CW: ' + cwTotal.toFixed(1);
+    scoreEl.style.color = cwTotal >= 70 ? 'var(--green)' : cwTotal >= 50 ? '#7a6000' : 'var(--red)';
+  }
+
+  // 5. Refresh final exam target table
+  const bodyEl = document.querySelector('#sub-' + subId + ' .subject-body');
+  if (bodyEl && bodyEl.classList.contains('open')) {
+    const existing = bodyEl.querySelector('.target-table');
+    if (existing) {
+      const temp = document.createElement('div');
+      temp.innerHTML = renderFinalTarget(sub);
+      existing.replaceWith(temp.firstElementChild);
+    }
+  }
+
+  recalcCurrent();
+}
+
+function addCWItem(subId) {
+  const sub = state.currentSubjects.find(s => s.id === subId);
+  if (sub) {
+    sub.cwItems.push({ name: 'Component', weight: 10, outOf: 100, score: 0 });
+    renderCurrentSubjects();
+  }
+}
+
+function removeCWItem(subId, idx) {
+  const sub = state.currentSubjects.find(s => s.id === subId);
+  if (sub) { sub.cwItems.splice(idx, 1); renderCurrentSubjects(); }
+}
+
+function togglePassFail(id, val) {
+  const sub = state.currentSubjects.find(s => s.id === id);
+  if (!sub) return;
+  sub.isPassFail = val;
+  if (val) {
+    sub._prevFinalPct = sub.finalPct; // save previous
+    sub.finalPct = 0;                 // P/F = no final exam
+  } else {
+    sub.finalPct = sub._prevFinalPct || 40; // restore
+  }
+  saveState();
+  renderCurrentSubjects();
+}
+
+function removeCurrentSubject(id) {
+  const sub = state.currentSubjects.find(s => s.id === id);
+  const name = sub ? (sub.code || sub.name || 'this subject') : 'this subject';
+  if (!confirm('Remove ' + name + '?')) return;
+  state.currentSubjects = state.currentSubjects.filter(s => s.id !== id);
+  saveState();
+  renderCurrentSubjects();
+}
+
+function recalcCurrent() {
+  const semName = document.getElementById('cur-sem-name')?.value || '';
+  state.currentSemName = semName;
+  saveState();
+
+  // Auto-fill prior CGPA & credits from history if fields are empty
+  const autoCGPA = calcCGPA(state.semesters);
+  const autoCredits = totalCreditsEarned(state.semesters);
+
+  const priorCGPAEl = document.getElementById('cur-prior-cgpa');
+  const priorCreditsEl = document.getElementById('cur-prior-credits');
+
+  // Only auto-fill if user hasn't typed anything
+  if (priorCGPAEl && !priorCGPAEl.dataset.userEdited && autoCGPA !== null) {
+    priorCGPAEl.value = autoCGPA.toFixed(4);
+    priorCGPAEl.style.background = 'var(--green-light)';
+    priorCGPAEl.title = 'Auto-filled from your history';
+  }
+  if (priorCreditsEl && !priorCreditsEl.dataset.userEdited && autoCredits > 0) {
+    priorCreditsEl.value = autoCredits;
+    priorCreditsEl.style.background = 'var(--green-light)';
+    priorCreditsEl.title = 'Auto-filled from your history';
+  }
+
+  const priorCGPA = parseFloat(priorCGPAEl?.value);
+  const priorCredits = parseFloat(priorCreditsEl?.value);
+  state.priorCGPA = isNaN(priorCGPA) ? null : priorCGPA;
+  state.priorCredits = isNaN(priorCredits) ? null : priorCredits;
+
+  // Sem credits
+  const semCredits = state.currentSubjects.reduce((a, s) => a + (s.credits || 0), 0);
+  document.getElementById('cur-credits').textContent = semCredits;
+
+  // Estimated GPA & CGPA based on target grades
+  const estSubjects = state.currentSubjects
+    .filter(s => !s.isPassFail && s.targetGrade)
+    .map(s => ({ grade: s.targetGrade, credits: s.credits }));
+
+  const estGPA = calcGPA(estSubjects);
+  document.getElementById('cur-gpa').textContent = estGPA !== null ? estGPA.toFixed(4) + ' (est.)' : '—';
+
+  // Estimated CGPA
+  if (estGPA !== null && state.priorCGPA !== null && state.priorCredits !== null) {
+    const totalQP = state.priorCGPA * state.priorCredits + estSubjects.reduce((a,s) => a + (gradeToPoint(s.grade)||0)*s.credits, 0);
+    const totalCr = state.priorCredits + estSubjects.reduce((a,s) => a + s.credits, 0);
+    const estCGPA = totalCr > 0 ? totalQP / totalCr : null;
+    document.getElementById('cur-cgpa').textContent = estCGPA !== null ? estCGPA.toFixed(4) + ' (est.)' : '—';
+    const cgpaEl = document.getElementById('cur-cgpa');
+    const targetMet = estCGPA !== null && state.targetCGPA && estCGPA >= state.targetCGPA;
+    cgpaEl.style.color = targetMet ? 'var(--green)' : estCGPA !== null ? 'var(--navy)' : '';
+  } else {
+    document.getElementById('cur-cgpa').textContent = '—';
+  }
+}
+
+function saveCurrentSemester() {
+  const name = document.getElementById('cur-sem-name').value.trim();
+  if (!name) { showToast('Please enter a semester name'); return; }
+  if (state.currentSubjects.length === 0) { showToast('Please add at least one subject'); return; }
+
+  // Warn if semester already exists in history
+  const existing = state.semesters.find(s => s.name.toUpperCase() === name.toUpperCase());
+  if (existing) {
+    if (!confirm(`"${name}" already exists in History.\n\nSave again? This will add a duplicate.\n\nTip: Use "Import PDF" to merge transcript grades instead.`)) return;
+  }
+
+  // Ask for grades
+  openSaveCurrentModal();
+}
+
+function openSaveCurrentModal() {
+  // Build a quick grade input overlay
+  const subjects = state.currentSubjects;
+  let html = `<div class="modal-title">Enter Final Grades</div>
+  <p style="font-size:12px;color:var(--text3);margin-bottom:16px">Enter the final grade you received for each subject to save this semester.</p>`;
+  for (const sub of subjects) {
+    html += `<div style="display:grid;grid-template-columns:1fr 120px;gap:10px;align-items:center;margin-bottom:10px">
+      <div>
+        <div style="font-size:11px;color:var(--text3)">${sub.code}</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700">${sub.name || 'Subject'}</div>
+        <div style="font-size:11px;color:var(--text3)">${sub.credits} credits · CW: ${calcCWTotal(sub).toFixed(1)}</div>
+      </div>
+      <select id="save-grade-${sub.id}">
+        ${sub.isPassFail ? '<option value="PS" selected>PS (Pass)</option><option value="F">F (Fail)</option>' : GRADE_OPTIONS.map(g => '<option value="' + g + '">' + g + '</option>').join('')}
+      </select>
+      ${sub.isPassFail ? '<span style="font-size:10px;color:#0d47a1;background:#e3f2fd;padding:2px 7px;border-radius:10px;font-weight:700">P/F Subject</span>' : ''}
+    </div>`;
+  }
+  html += `<div class="divider"></div>
+  <div style="display:flex;gap:10px;justify-content:flex-end">
+    <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+    <button class="btn btn-primary" onclick="confirmSaveCurrent()">Save Semester</button>
+  </div>`;
+
+  const modal = document.getElementById('add-sem-modal');
+  modal.querySelector('.modal').innerHTML = html;
+  modal.classList.add('open');
+}
+
+function confirmSaveCurrent() {
+  const name = document.getElementById('cur-sem-name').value.trim();
+  const subjects = state.currentSubjects.map(sub => {
+    const grade = document.getElementById(`save-grade-${sub.id}`)?.value || 'F';
+    return {
+      code: sub.code,
+      name: sub.name,
+      credits: sub.credits,
+      grade: grade,
+      gradePoint: gradeToPoint(grade),
+      cwItems: sub.cwItems,
+      finalPct: sub.finalPct,
+      targetGrade: sub.targetGrade || 'B+',
+      isPassFail: sub.isPassFail || false,
+    };
+  });
+
+  const gpa = calcGPA(subjects);
+  const sem = {
+    id: Date.now(),
+    name,
+    gpa,
+    subjects,
+  };
+
+  state.semesters.push(sem);
+  saveState();
+  closeModal();
+  showToast('Semester saved!');
+  renderDashboard();
+
+  // Reset current
+  state.currentSubjects = [];
+  document.getElementById('cur-sem-name').value = '';
+  renderCurrentSubjects();
+}
+
+// ===================== HISTORY =====================
+function renderHistory() {
+  const el = document.getElementById('history-list');
+  if (state.semesters.length === 0) {
+    el.innerHTML = `<div class="empty-state"><div class="empty-state-icon">🗂</div><div class="empty-state-title">No semesters recorded</div><div class="empty-state-sub">Import a PDF transcript or add manually</div></div>`;
+    return;
+  }
+
+  // GPA Trend sparkline
+  const gpaPoints = state.semesters.map(s => s.gpa ?? calcGPA(s.subjects||[])).filter(g => g !== null);
+  let trendHTML = '';
+  if (gpaPoints.length > 1) {
+    const W = 300, H = 60, pad = 8;
+    const minG = Math.min(...gpaPoints, 2), maxG = Math.max(...gpaPoints, 4);
+    const xStep = (W - pad*2) / (gpaPoints.length - 1);
+    const yScale = (g) => H - pad - (g - minG) / (maxG - minG) * (H - pad*2);
+    const pts = gpaPoints.map((g,i) => `${pad + i*xStep},${yScale(g)}`).join(' ');
+    const dots = gpaPoints.map((g,i) => `<circle cx="${pad+i*xStep}" cy="${yScale(g)}" r="4" fill="var(--navy)"/><title>${state.semesters[i]?.name}: ${g.toFixed(4)}</title>`).join('');
+    trendHTML = `<div class="card" style="margin-bottom:18px">
+      <div class="card-header"><div class="card-title"><div class="dot"></div>GPA Trend</div></div>
+      <div style="display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <svg width="${W}" height="${H}" style="overflow:visible">
+          <polyline points="${pts}" fill="none" stroke="var(--navy)" stroke-width="2.5" stroke-linejoin="round"/>
+          <polyline points="${pts}" fill="rgba(10,31,92,0.08)" stroke="none" points="${pts} ${pad+(gpaPoints.length-1)*xStep},${H} ${pad},${H}"/>
+          ${dots}
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          ${gpaPoints.map((g,i) => `<div style="display:flex;align-items:center;gap:8px;font-size:12px">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--navy)"></div>
+            <span style="color:var(--text3)">${state.semesters[i]?.name}</span>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;color:${g>=3.5?'var(--green)':g>=3?'var(--navy)':'var(--red)'}">${g.toFixed(4)}</span>
+          </div>`).join('')}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  let runningQP = 0, runningCredits = 0;
+  const semCards = state.semesters.map((sem, i) => {
+    const gpa = sem.gpa ?? calcGPA(sem.subjects || []);
+    const credits = (sem.subjects||[]).reduce((a,s)=>a+s.credits,0);
+    for (const sub of (sem.subjects||[])) {
+      const gp = gradeToPoint(sub.grade);
+      if (gp !== null) { runningQP += gp * sub.credits; runningCredits += sub.credits; }
+    }
+    const cgpaAtSem = runningCredits > 0 ? runningQP / runningCredits : null;
+
+    const subRows = (sem.subjects||[]).map(sub => {
+      const actualGP = gradeToPoint(sub.grade);
+      const targetGP = sub.targetGrade ? gradeToPoint(sub.targetGrade) : null;
+      const metTarget = actualGP !== null && targetGP !== null && actualGP >= targetGP;
+      const missedTarget = actualGP !== null && targetGP !== null && actualGP < targetGP;
+      return `<tr>
+        <td style="color:var(--navy);font-weight:700">${sub.code||'—'}</td>
+        <td>${sub.name||'—'}</td>
+        <td style="text-align:center">${sub.credits}</td>
+        <td style="text-align:center">
+          <span class="grade-badge ${gradeColor(sub.grade)}">${sub.grade}</span>
+          ${sub.isPassFail ? '<span style="font-size:10px;color:#0d47a1;margin-left:3px">P/F</span>' : ''}
+        </td>
+        <td style="text-align:center">
+          ${sub.targetGrade && !sub.isPassFail
+            ? `<span style="font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px;background:${metTarget?'var(--green-light)':missedTarget?'var(--red-light)':'var(--yellow-light)'};color:${metTarget?'var(--green)':missedTarget?'var(--red)':'#7a6000'}">${metTarget?'✓ ':'✗ '}${sub.targetGrade}</span>`
+            : '<span style="color:var(--text3);font-size:11px">—</span>'}
+        </td>
+        <td style="text-align:center;color:var(--text2)">${actualGP ?? 'N/A'}</td>
+      </tr>`;
+    }).join('');
+
+    return `<div style="margin-bottom:16px">
+      <div class="semester-row" onclick="toggleSemHistory('sem-hist-${sem.id}')" style="cursor:pointer">
+        <div class="sem-info">
+          <div class="sem-name">${sem.name}</div>
+          <div class="sem-detail">${(sem.subjects||[]).length} subjects · ${credits} credits · CGPA: ${cgpaAtSem?cgpaAtSem.toFixed(4):'—'}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="sem-gpa">
+            <div class="sem-gpa-val">${gpa!==null?gpa.toFixed(4):'—'}</div>
+            <div class="sem-gpa-label">GPA</div>
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();openEditSemModal(${sem.id})" title="Edit">✏️</button>
+          <button class="btn-icon btn-danger btn-sm" onclick="event.stopPropagation();deleteSemester(${sem.id})">🗑</button>
+        </div>
+      </div>
+      <div id="sem-hist-${sem.id}" style="display:none;background:var(--surface2);border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:16px">
+        <table class="sem-subjects-table">
+          <thead><tr><th>Code</th><th>Subject</th><th>Credits</th><th>Grade</th><th>Target</th><th>GP</th></tr></thead>
+          <tbody>${subRows}</tbody>
+        </table>
+      </div>
+    </div>`;
+  }).join('');
+
+  el.innerHTML = trendHTML + semCards;
+}
+
+
+function openEditSemModal(semId) {
+  const sem = state.semesters.find(s => s.id === semId);
+  if (!sem) return;
+
+  const modal = document.getElementById('add-sem-modal');
+  let subHTML = (sem.subjects||[]).map((sub,i) => `
+    <div style="display:grid;grid-template-columns:90px 1fr 50px 70px 70px 32px;gap:7px;align-items:center;margin-bottom:8px">
+      <input type="text" placeholder="Code" value="${sub.code||''}" oninput="editHistSub(${semId},${i},'code',this.value)" style="font-size:12px">
+      <input type="text" placeholder="Subject Name" value="${sub.name||''}" oninput="editHistSub(${semId},${i},'name',this.value)" style="font-size:12px">
+      <input type="number" min="1" max="6" step="0.5" value="${sub.credits}" oninput="editHistSub(${semId},${i},'credits',+this.value)" style="font-size:12px">
+      <select onchange="editHistSub(${semId},${i},'grade',this.value)" style="font-size:12px">
+        ${GRADE_OPTIONS.map(g => '<option value="'+g+'"'+(g===sub.grade?' selected':'')+'>'+g+'</option>').join('')}
+      </select>
+      <select onchange="editHistSub(${semId},${i},'targetGrade',this.value)" style="font-size:12px;border:2px solid var(--yellow)">
+        <option value="">—</option>
+        ${['A+','A','A-','B+','B','B-','C+','C'].map(g => '<option value="'+g+'"'+((g===sub.targetGrade)?' selected':'')+'>'+g+'</option>').join('')}
+      </select>
+      <button class="btn-icon btn-danger" onclick="removeHistSub(${semId},${i})" style="font-size:11px">✕</button>
+    </div>`).join('');
+
+  modal.querySelector('.modal').innerHTML = `
+    <div class="modal-title">Edit — ${sem.name}</div>
+    <div style="margin-bottom:10px">
+      <label>Semester Name</label>
+      <input type="text" id="edit-sem-name" value="${sem.name}" style="margin-bottom:12px">
+    </div>
+    <div style="display:grid;grid-template-columns:90px 1fr 50px 70px 70px 32px;gap:7px;margin-bottom:6px;padding:0 2px">
+      <span style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase">Code</span>
+      <span style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase">Name</span>
+      <span style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase">Cr</span>
+      <span style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase">Grade</span>
+      <span style="font-size:10px;color:#7a6000;font-weight:700;text-transform:uppercase">🎯 Target</span>
+      <span></span>
+    </div>
+    <div id="edit-hist-subs">${subHTML}</div>
+    <button class="btn btn-secondary btn-sm" style="margin-top:6px" onclick="addEditHistSub(${semId})">+ Add Subject</button>
+    <div class="divider"></div>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveEditSem(${semId})">Save Changes</button>
+    </div>`;
+  modal.classList.add('open');
+}
+
+function editHistSub(semId, idx, field, val) {
+  const sem = state.semesters.find(s => s.id === semId);
+  if (sem && sem.subjects[idx]) {
+    sem.subjects[idx][field] = val;
+    if (field === 'grade') sem.subjects[idx].gradePoint = gradeToPoint(val);
+  }
+}
+
+function removeHistSub(semId, idx) {
+  const sem = state.semesters.find(s => s.id === semId);
+  if (!sem) return;
+  sem.subjects.splice(idx, 1);
+  openEditSemModal(semId); // re-render modal
+}
+
+function addEditHistSub(semId) {
+  const sem = state.semesters.find(s => s.id === semId);
+  if (!sem) return;
+  sem.subjects.push({ code:'', name:'', credits:3, grade:'B+', gradePoint:3.33, targetGrade:'B+' });
+  openEditSemModal(semId);
+}
+
+function saveEditSem(semId) {
+  const sem = state.semesters.find(s => s.id === semId);
+  if (!sem) return;
+  const nameEl = document.getElementById('edit-sem-name');
+  if (nameEl) sem.name = nameEl.value.trim() || sem.name;
+  sem.gpa = calcGPA(sem.subjects);
+  saveState();
+  closeModal();
+  renderHistory();
+  renderDashboard();
+  showToast('Semester updated!');
+}
+
+function gradeColor(g) {
+  const gp = gradeToPoint(g);
+  if (g === 'PS') return '';
+  if (gp === null || gp < 2) return 'grade-hard';
+  if (gp < 3) return 'grade-medium';
+  return 'grade-easy';
+}
+
+function toggleSemHistory(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+function deleteSemester(id) {
+  if (!confirm('Delete this semester?')) return;
+  state.semesters = state.semesters.filter(s => s.id !== id);
+  saveState();
+  renderHistory();
+  renderDashboard();
+  showToast('Semester deleted');
+}
+
+// ===================== ADD SEM MODAL =====================
+let modalSubjects = [];
+
+function openAddSemModal() {
+  modalSubjects = [];
+  const modal = document.getElementById('add-sem-modal');
+  modal.querySelector('.modal').innerHTML = `
+    <div class="modal-title">Add Semester</div>
+    <div class="form-row form-row-2" style="margin-bottom:16px">
+      <div><label>Semester Name</label><input type="text" id="modal-sem-name" placeholder="e.g. JUNE 2025"></div>
+    </div>
+    <div style="margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <label style="margin:0">Subjects</label>
+        <button class="btn btn-secondary btn-sm" onclick="addModalSubject()">+ Add</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 2fr 60px 80px 80px 32px;gap:8px;margin-bottom:6px;padding:0 2px">
+        <span style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase">Code</span>
+        <span style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase">Name</span>
+        <span style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase">Cr</span>
+        <span style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase">Grade</span>
+        <span style="font-size:10px;color:#7a6000;font-weight:700;text-transform:uppercase">🎯 Target</span>
+        <span></span>
+      </div>
+      <div id="modal-subjects"></div>
+    </div>
+    <div class="divider"></div>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveModalSemester()">Save Semester</button>
+    </div>`;
+  addModalSubject();
+  modal.classList.add('open');
+}
+
+function addModalSubject() {
+  const id = Date.now() + Math.random();
+  modalSubjects.push({ id, code: '', name: '', credits: 3, grade: 'B+', targetGrade: 'B+', isPassFail: false });
+  renderModalSubjects();
+}
+
+function renderModalSubjects() {
+  const el = document.getElementById('modal-subjects');
+  if (!el) return;
+  el.innerHTML = modalSubjects.map(sub => `
+    <div style="display:grid;grid-template-columns:1fr 2fr 60px 80px 80px 32px;gap:8px;align-items:center;margin-bottom:8px">
+      <input type="text" placeholder="Code" value="${sub.code}" oninput="updateModalSub('${sub.id}','code',this.value)">
+      <input type="text" placeholder="Subject Name" value="${sub.name}" oninput="updateModalSub('${sub.id}','name',this.value)">
+      <input type="number" min="1" max="6" value="${sub.credits}" oninput="updateModalSub('${sub.id}','credits',+this.value)">
+      <select onchange="updateModalSub('${sub.id}','grade',this.value)">${GRADE_OPTIONS.map(g=>`<option value="${g}" ${g===sub.grade?'selected':''}>${g}</option>`).join('')}</select>
+      <select title="Target Grade" onchange="updateModalSub('${sub.id}','targetGrade',this.value)" style="border:2px solid var(--yellow);font-weight:700;max-width:80px">${['A+','A','A-','B+','B','B-','C+','C'].map(g=>`<option value="${g}" ${g===(sub.targetGrade||'B+')?'selected':''}>${g}</option>`).join('')}</select>
+      <button class="btn-icon btn-danger" onclick="removeModalSub('${sub.id}')">✕</button>
+    </div>`).join('');
+}
+
+function updateModalSub(id, field, val) {
+  const sub = modalSubjects.find(s => s.id == id);
+  if (sub) sub[field] = val;
+}
+
+function removeModalSub(id) {
+  modalSubjects = modalSubjects.filter(s => s.id != id);
+  renderModalSubjects();
+}
+
+function saveModalSemester() {
+  const name = document.getElementById('modal-sem-name')?.value?.trim();
+  if (!name) { showToast('Enter a semester name'); return; }
+  if (modalSubjects.length === 0) { showToast('Add at least one subject'); return; }
+
+  const subjects = modalSubjects.map(sub => ({
+    code: sub.code,
+    name: sub.name,
+    credits: sub.credits,
+    grade: sub.grade,
+    gradePoint: gradeToPoint(sub.grade),
+    targetGrade: sub.targetGrade || 'B+',
+    isPassFail: sub.isPassFail || false,
+  }));
+
+  const gpa = calcGPA(subjects);
+  state.semesters.push({ id: Date.now(), name, gpa, subjects });
+  saveState();
+  closeModal();
+  renderHistory();
+  renderDashboard();
+  showToast('Semester added!');
+}
+
+function closeModal() {
+  document.getElementById('add-sem-modal').classList.remove('open');
+}
+
+// ===================== ANALYSIS =====================
+function runAnalysis() {
+  const target = parseFloat(document.getElementById('analysis-target').value);
+  if (isNaN(target)) return;
+  state.targetCGPA = target;
+  saveState();
+  renderAnalysis();
+}
+
+function renderAnalysis() {
+  const target = state.targetCGPA;
+  const el = document.getElementById('analysis-content');
+  if (!target) {
+    el.innerHTML = `<div class="empty-state"><div class="empty-state-icon">🎯</div><div class="empty-state-title">Set a target CGPA above</div></div>`;
+    return;
+  }
+
+  const cgpa = calcCGPA(state.semesters);
+  const totalCredits = totalCreditsEarned(state.semesters);
+  const allSubjects = state.semesters.flatMap(s => s.subjects || []).filter(s => !s.isPassFail && s.grade !== 'PS');
+
+  // ── Stats ──────────────────────────────────────────────────────
+  const gap = cgpa !== null ? target - cgpa : null;
+  const gapColor = gap === null ? 'var(--text3)' : gap > 0 ? 'var(--red)' : 'var(--green)';
+  const gapLabel = gap === null ? 'No history yet' : gap > 0
+    ? '↑ Need +' + gap.toFixed(4) + ' more to reach target'
+    : '✓ Target achieved! ' + Math.abs(gap).toFixed(4) + ' above target';
+
+  // ── How many more credits needed to reach target CGPA ─────────
+  // If current CGPA < target, estimate credits of A- (3.67) needed
+  let creditsNeededHTML = '';
+  if (cgpa !== null && gap > 0) {
+    // Solve: (cgpa*totalCr + 3.67*x) / (totalCr + x) = target
+    // → x = totalCr*(target-cgpa) / (3.67-target)
+    if (3.67 - target > 0.001) {
+      const x = totalCredits * (target - cgpa) / (3.67 - target);
+      creditsNeededHTML = `<div style="padding:12px 16px;background:var(--yellow-light);border:1px solid rgba(245,208,0,0.4);border-radius:var(--radius);margin-bottom:16px;font-size:13px">
+        <b>💡 Projection:</b> If you score <b>A-</b> in all future subjects, you need approximately <b>${Math.ceil(x)} more credits</b> to reach CGPA ${target.toFixed(2)}.
+      </div>`;
+    } else {
+      creditsNeededHTML = `<div style="padding:12px 16px;background:var(--red-light);border:1px solid rgba(232,0,28,0.15);border-radius:var(--radius);margin-bottom:16px;font-size:13px;color:var(--red)">
+        ⚠ Target CGPA ${target.toFixed(2)} is very close to or above A- (3.67). This may be very difficult to achieve.
+      </div>`;
+    }
+  }
+
+  // ── Est. CGPA if current sem hits all targets ──────────────────
+  let estCGPAHTML = '';
+  if (state.currentSubjects.length > 0) {
+    const estSubs = state.currentSubjects.filter(s => !s.isPassFail && s.targetGrade);
+    if (estSubs.length > 0 && cgpa !== null) {
+      const addQP = estSubs.reduce((a,s) => a + (gradeToPoint(s.targetGrade)||0)*s.credits, 0);
+      const addCr = estSubs.reduce((a,s) => a + s.credits, 0);
+      const estCGPA = (cgpa * totalCredits + addQP) / (totalCredits + addCr);
+      const estGap = target - estCGPA;
+      estCGPAHTML = `<div style="padding:12px 16px;background:${estGap<=0?'var(--green-light)':'var(--surface3)'};border:1px solid ${estGap<=0?'rgba(26,122,46,0.3)':'var(--border)'};border-radius:var(--radius);margin-bottom:16px">
+        <div style="font-size:11px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">If Current Sem Achieves All Target Grades</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:${estGap<=0?'var(--green)':'var(--navy)'}">Est. CGPA: ${estCGPA.toFixed(4)}</div>
+        <div style="font-size:12px;color:${estGap<=0?'var(--green)':'var(--red)'};margin-top:2px">${estGap<=0 ? '✓ Would reach target!' : '↑ Still ' + estGap.toFixed(4) + ' short of target'}</div>
+      </div>`;
+    }
+  }
+
+  // ── Semester GPA vs Target line chart ─────────────────────────
+  const semGPAChart = (() => {
+    if (state.semesters.length === 0) return '';
+    const sems = state.semesters;
+    const W = 500, H = 120, padL = 36, padR = 16, padT = 14, padB = 28;
+    const gpas = sems.map(s => s.gpa ?? calcGPA(s.subjects||[]));
+    const allVals = [...gpas.filter(g=>g!==null), target, 2.0, 4.0];
+    const minV = Math.max(0, Math.min(...allVals) - 0.2);
+    const maxV = Math.min(4, Math.max(...allVals) + 0.2);
+    const xStep = (W - padL - padR) / Math.max(sems.length - 1, 1);
+    const yScale = v => padT + (1 - (v - minV)/(maxV - minV)) * (H - padT - padB);
+    const xPos = i => padL + i * xStep;
+
+    // Target line
+    const ty = yScale(target);
+    const targetLine = `<line x1="${padL}" y1="${ty}" x2="${W-padR}" y2="${ty}" stroke="var(--yellow)" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="${W-padR+2}" y="${ty+4}" font-size="9" fill="var(--yellow)" font-weight="700">Target</text>`;
+
+    // GPA line
+    const validPts = gpas.map((g,i) => g !== null ? {x: xPos(i), y: yScale(g), g, i} : null).filter(Boolean);
+    if (validPts.length === 0) return '';
+    const linePts = validPts.map(p => `${p.x},${p.y}`).join(' ');
+
+    // Fill area under line
+    const fillPts = `${validPts[0].x},${H-padB} ` + linePts + ` ${validPts[validPts.length-1].x},${H-padB}`;
+
+    // Dots + labels
+    const dots = validPts.map(p => {
+      const aboveTarget = p.g >= target;
+      const col = aboveTarget ? 'var(--green)' : 'var(--red)';
+      return `<circle cx="${p.x}" cy="${p.y}" r="5" fill="${col}" stroke="white" stroke-width="1.5"/>
+      <text x="${p.x}" y="${p.y - 8}" text-anchor="middle" font-size="9" font-weight="700" fill="${col}">${p.g.toFixed(2)}</text>`;
+    }).join('');
+
+    // X axis labels
+    const xLabels = sems.map((s,i) => {
+      const shortName = s.name.replace(/TRIMESTER\s*/i,'').trim().split(' ').map((w,j) => j===0?w.slice(0,3):w).join(' ');
+      return `<text x="${xPos(i)}" y="${H-padB+12}" text-anchor="middle" font-size="9" fill="var(--text3)">${shortName}</text>`;
+    }).join('');
+
+    // Y axis ticks
+    const yTicks = [2,2.5,3,3.5,4].map(v => {
+      const y = yScale(v);
+      if (y < padT || y > H-padB) return '';
+      return `<line x1="${padL-4}" y1="${y}" x2="${padL}" y2="${y}" stroke="var(--border)" stroke-width="1"/>
+      <text x="${padL-6}" y="${y+3}" text-anchor="end" font-size="8" fill="var(--text3)">${v}</text>`;
+    }).join('');
+
+    return `<div class="section-label" style="margin-top:4px">Semester GPA vs Target</div>
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;overflow-x:auto">
+      <svg width="${W}" height="${H}" style="min-width:${W}px;overflow:visible">
+        <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${H-padB}" stroke="var(--border)" stroke-width="1"/>
+        <line x1="${padL}" y1="${H-padB}" x2="${W-padR}" y2="${H-padB}" stroke="var(--border)" stroke-width="1"/>
+        ${yTicks}
+        ${targetLine}
+        <polygon points="${fillPts}" fill="rgba(10,31,92,0.06)"/>
+        <polyline points="${linePts}" fill="none" stroke="var(--navy)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        ${dots}
+        ${xLabels}
+      </svg>
+      <div style="display:flex;gap:16px;margin-top:10px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px"><span style="width:12px;height:3px;background:var(--navy);display:inline-block;border-radius:2px"></span>GPA per semester</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px"><span style="width:12px;height:2px;background:var(--yellow);display:inline-block;border-radius:2px;border-top:2px dashed var(--yellow)"></span>Target CGPA</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px"><span style="width:10px;height:10px;border-radius:50%;background:var(--green);display:inline-block"></span>Above target</div>
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px"><span style="width:10px;height:10px;border-radius:50%;background:var(--red);display:inline-block"></span>Below target</div>
+      </div>
+    </div>`;
+  })();
+
+  el.innerHTML = `
+    <div class="stats-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:16px">
+      <div class="stat-box"><div class="stat-label">Current CGPA</div><div class="stat-value navy">${cgpa !== null ? cgpa.toFixed(4) : '—'}</div></div>
+      <div class="stat-box ${gap===null?'':gap<=0?'green':'red'}"><div class="stat-label">Target CGPA</div><div class="stat-value ${gap===null?'navy':gap<=0?'green':'red'}">${target.toFixed(2)}</div></div>
+      <div class="stat-box"><div class="stat-label">Gap</div><div class="stat-value" style="font-size:20px;color:${gapColor}">${gap===null?'—':gap>0?'+'+gap.toFixed(4):gap.toFixed(4)}</div></div>
+    </div>
+    <div style="padding:12px 16px;background:var(--surface2);border-radius:var(--radius);border:1px solid var(--border);margin-bottom:14px;font-size:13px;font-weight:600;color:${gapColor}">${gapLabel}</div>
+    ${creditsNeededHTML}
+    ${estCGPAHTML}
+    ${semGPAChart}`;
+
+  renderFinalPlanner();
+}
+
+function gradeForCGPA(targetCGPA) {
+  // What grade point do we need to be "on track" for target CGPA?
+  if (targetCGPA >= 3.67) return 3.67; // A-
+  if (targetCGPA >= 3.33) return 3.33; // B+
+  if (targetCGPA >= 3.00) return 3.00; // B
+  if (targetCGPA >= 2.67) return 2.67; // B-
+  if (targetCGPA >= 2.33) return 2.33; // C+
+  return 2.00;
+}
+
+function renderFinalPlanner() {
+  const card = document.getElementById('final-planner-card');
+  const el = document.getElementById('final-planner-content');
+  if (state.currentSubjects.length === 0) { card.style.display = 'none'; return; }
+  card.style.display = 'block';
+
+  el.innerHTML = state.currentSubjects.map(sub => `
+    <div style="margin-bottom:20px">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:0.3px;margin-bottom:4px">${sub.code || 'Subject'} — ${sub.name}</div>
+      <div style="font-size:11px;color:var(--text3);margin-bottom:10px">CW: ${calcCWTotal(sub).toFixed(2)} · Final Exam: ${sub.finalPct}%</div>
+      ${renderFinalTarget(sub)}
+    </div>`).join('<div class="divider"></div>');
+}
+
+// ===================== PDF IMPORT =====================
+let importedSemesters = [];
+
+// Make PDF.js work with file:// by pointing worker to main script itself
+// This is the standard workaround for local HTML files
+// Configure PDF.js worker - works for both file:// and http://
+// For local file:// usage, we use a self-contained worker approach
+// by pointing workerSrc to a data URI that acts as a stub
+// PDF.js worker setup - works for both online and local file:// usage
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('upload-zone').classList.remove('dragging');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type === 'application/pdf') processPDF(file);
+}
+
+function handlePDFUpload(e) {
+  const file = e.target.files[0];
+  if (file) processPDF(file);
+}
+
+async function processPDF(file) {
+  document.getElementById('pdf-processing').style.display = 'block';
+  document.getElementById('import-preview').style.display = 'none';
+
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+
+    // Collect all text items with their Y positions across all pages
+    let allItems = [];
+    for (let p = 1; p <= pdf.numPages; p++) {
+      const page = await pdf.getPage(p);
+      const content = await page.getTextContent();
+      const viewport = page.getViewport({ scale: 1 });
+      for (const item of content.items) {
+        if (!item.str.trim()) continue;
+        // transform[5] is Y from bottom; flip to get Y from top
+        const y = Math.round(viewport.height - item.transform[5]);
+        const x = Math.round(item.transform[4]);
+        allItems.push({ str: item.str.trim(), x, y, page: p });
+      }
+    }
+
+    // Group items into logical rows by Y proximity (within 4px = same row)
+    allItems.sort((a, b) => a.page !== b.page ? a.page - b.page : a.y !== b.y ? a.y - b.y : a.x - b.x);
+    const rows = [];
+    let currentRow = [];
+    let lastY = -999, lastPage = -1;
+    for (const item of allItems) {
+      if (item.page !== lastPage || Math.abs(item.y - lastY) > 6) {
+        if (currentRow.length) rows.push(currentRow);
+        currentRow = [item];
+        lastY = item.y;
+        lastPage = item.page;
+      } else {
+        currentRow.push(item);
+        lastY = (lastY + item.y) / 2;
+      }
+    }
+    if (currentRow.length) rows.push(currentRow);
+
+    // Convert rows to text lines (tokens sorted by X)
+    const lines = rows.map(row => {
+      row.sort((a, b) => a.x - b.x);
+      return row.map(i => i.str).join(' ');
+    });
+
+    importedSemesters = parseUTARTranscript(lines);
+    renderImportPreview(importedSemesters, lines);
+  } catch(e) {
+    console.error(e);
+    const msg = e.message?.includes('worker') || e.message?.includes('origin')
+      ? 'PDF import requires an internet connection on first use (to load PDF reader). Please connect and try again.'
+      : 'Error reading PDF: ' + e.message;
+    showToast(msg);
+    document.getElementById('pdf-processing').innerHTML = '⚠ ' + (e.message?.includes('worker') || e.message?.includes('origin') ? 'Please ensure you have internet connection, then retry.' : e.message);
+  }
+  document.getElementById('pdf-processing').style.display = 'block';
+  setTimeout(() => { document.getElementById('pdf-processing').style.display = 'none'; document.getElementById('pdf-processing').innerHTML = '⏳ Reading transcript...'; }, 5000);
+}
+
+function parseUTARTranscript(lines) {
+  const semesters = [];
+  let currentSem = null;
+
+  // UTAR course codes: 2-5 letters + 4-5 digits (e.g. UCCB1013, MPU32143, UBMM1011)
+  const codePattern = /^([A-Z]{2,5}\d{4,5})\b/;
+  // Semester header
+  const semPattern = /TRIMESTER\s*[:\-]?\s*([A-Z]+\s+\d{4})/i;
+  // Grade: must be standalone token — careful ordering (A+ before A, B+ before B etc)
+  const GRADE_RE = /\b(A\+|A-|A|B\+|B-|B|C\+|C-|C|D|F|PS)\b/;
+  const gradeAtEnd = /\b(A\+|A-|A|B\+|B-|B|C\+|C-|C|D|F|PS)\s*$/i;
+  // Credits + grade at end of line
+  const creditGradeAtEnd = /\b(\d+\.?\d*)\s+(A\+|A-|A|B\+|B-|B|C\+|C-|C|D|F|PS)\s*$/i;
+  // GPA line
+  const gpaPattern = /\bGPA\s*[:\s]+([\d.]+)/i;
+  // Lines to skip (summary/footer lines)
+  const skipPattern = /Total Credits|Credits Earned|Credit Hours|MUET|Candidacy|Exempted|Transferred|Status|End of Results|Course\/Unit|COURSE\/UNIT/i;
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line) continue;
+
+    // ---- GPA line check FIRST (before skip, since GPA line contains "Credits Earned") ----
+    if (currentSem && currentSem.gpa === null) {
+      const gpaMatch = line.match(gpaPattern);
+      if (gpaMatch) { currentSem.gpa = parseFloat(gpaMatch[1]); continue; }
+    }
+
+    if (skipPattern.test(line)) continue;
+
+    // ---- Detect new trimester ----
+    const semMatch = line.match(semPattern);
+    if (semMatch) {
+      if (currentSem && currentSem.subjects.length > 0) semesters.push(currentSem);
+      currentSem = {
+        id: Date.now() + Math.random() + semesters.length,
+        name: semMatch[1].toUpperCase().trim(),
+        gpa: null,
+        subjects: []
+      };
+      continue;
+    }
+
+    if (!currentSem) continue;
+
+    // (GPA already handled above)
+
+    // ---- Subject line: must start with a UTAR course code ----
+    const codeMatch = line.match(codePattern);
+    if (!codeMatch) continue;
+
+    const code = codeMatch[1];
+    const afterCode = line.slice(code.length).trim();
+
+    // Strategy 1: credits + grade at end  →  "... 3.0 B+"
+    const cgMatch = afterCode.match(creditGradeAtEnd);
+    if (cgMatch) {
+      const credits = parseFloat(cgMatch[1]);
+      const grade = cgMatch[2].toUpperCase();
+      const name = afterCode.replace(creditGradeAtEnd, '').trim();
+      currentSem.subjects.push({
+        code,
+        name: name || code,
+        credits: isNaN(credits) ? 3 : credits,
+        grade,
+        gradePoint: gradeToPoint(grade),
+      });
+      continue;
+    }
+
+    // Strategy 2: grade at end only (credits may be on a previous line or missing)
+    const gradeMatch = afterCode.match(gradeAtEnd);
+    if (gradeMatch) {
+      const grade = gradeMatch[1].toUpperCase();
+      const withoutGrade = afterCode.replace(gradeAtEnd, '').trim();
+      // Look for a trailing number as credits
+      const credMatch = withoutGrade.match(/(\d+\.?\d*)\s*$/);
+      const credits = credMatch ? parseFloat(credMatch[1]) : 3;
+      const name = withoutGrade.replace(/(\d+\.?\d*)\s*$/, '').trim();
+      currentSem.subjects.push({
+        code,
+        name: name || code,
+        credits,
+        grade,
+        gradePoint: gradeToPoint(grade),
+      });
+      continue;
+    }
+
+    // Strategy 3: grade appears anywhere in line (PDF may split columns oddly)
+    // Try to find any grade token and a number for credits
+    const anyGrade = afterCode.match(GRADE_RE);
+    if (anyGrade) {
+      const grade = anyGrade[1].toUpperCase();
+      const withoutGrade = afterCode.replace(GRADE_RE, '').trim();
+      const credMatch = withoutGrade.match(/(\d+\.?\d*)/);
+      const credits = credMatch ? parseFloat(credMatch[1]) : 3;
+      const name = withoutGrade.replace(/(\d+\.?\d*)/, '').trim();
+      currentSem.subjects.push({
+        code,
+        name: name || code,
+        credits: credits > 0 && credits <= 6 ? credits : 3,
+        grade,
+        gradePoint: gradeToPoint(grade),
+      });
+    }
+    // If no grade found at all on this line, skip (might be a multi-line PDF artifact)
+  }
+
+  // Push last semester
+  if (currentSem && currentSem.subjects.length > 0) semesters.push(currentSem);
+
+  // Recalculate GPA where not found
+  for (const sem of semesters) {
+    if (sem.gpa === null) sem.gpa = calcGPA(sem.subjects);
+  }
+
+  return semesters;
+}
+
+function renderImportPreview(semesters, debugLines) {
+  const el = document.getElementById('import-preview-content');
+  const preview = document.getElementById('import-preview');
+  if (semesters.length === 0) {
+    const debugHTML = debugLines ? `<details style="margin-top:12px"><summary style="cursor:pointer;font-size:11px;color:var(--text3)">▶ Show raw extracted text (send this to developer)</summary><pre style="font-size:10px;color:var(--text3);margin-top:8px;white-space:pre-wrap;max-height:300px;overflow-y:auto;background:var(--surface);padding:10px;border-radius:8px">${debugLines.slice(0,100).join('\n')}</pre></details>` : '';
+    el.innerHTML = `<div style="color:var(--accent2);font-size:13px;margin-bottom:8px">⚠ Could not detect semester data. Make sure this is a UTAR academic transcript PDF.</div>${debugHTML}`;
+    preview.style.display = 'block';
+    return;
+  }
+  el.innerHTML = semesters.map(sem => `
+    <div style="margin-bottom:16px">
+      <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:8px;color:var(--accent)">${sem.name} — GPA: ${sem.gpa?.toFixed(4) ?? '—'}</div>
+      ${sem.subjects.map(sub => `<div class="import-subject-row">
+        <span>${sub.code} · ${sub.name}</span>
+        <span style="display:flex;gap:12px;align-items:center">
+          <span style="color:var(--text3)">${sub.credits} cr</span>
+          <span class="grade-badge ${gradeColor(sub.grade)}">${sub.grade}</span>
+        </span>
+      </div>`).join('')}
+    </div>`).join('<div class="divider"></div>');
+  preview.style.display = 'block';
+}
+
+function confirmImport() {
+  if (importedSemesters.length === 0) return;
+
+  const existingNames = new Set(state.semesters.map(s => s.name));
+  const duplicates = importedSemesters.filter(s => existingNames.has(s.name));
+  const newSems = importedSemesters.filter(s => !existingNames.has(s.name));
+
+  // Check if any duplicate matches current sem name — suggest merging
+  const curName = state.currentSemName?.toUpperCase().trim();
+  const curMatch = importedSemesters.find(s => s.name === curName);
+
+  if (curMatch && state.currentSubjects.length > 0) {
+    // Merge transcript grades into current sem subjects, preserving cwItems & targetGrade
+    const msg = `"${curName}" matches your Current Semester.\n\nMerge transcript grades into your Current Sem data?\n(This will update grades but keep your coursework breakdown & target grades)`;
+    if (confirm(msg)) {
+      // Merge: for each subject in curMatch, find matching subject in currentSubjects and copy grade
+      for (const tSub of curMatch.subjects) {
+        const cur = state.currentSubjects.find(s => s.code === tSub.code);
+        if (cur) {
+          cur.actualGrade = tSub.grade;
+          cur.actualGradePoint = tSub.gradePoint;
+        }
+      }
+      // Also save as history with cwItems preserved
+      const mergedSubjects = curMatch.subjects.map(tSub => {
+        const cur = state.currentSubjects.find(s => s.code === tSub.code);
+        return {
+          ...tSub,
+          cwItems: cur?.cwItems || [],
+          finalPct: cur?.finalPct || 40,
+          targetGrade: cur?.targetGrade || 'B+',
+          isPassFail: cur?.isPassFail || tSub.grade === 'PS',
+        };
+      });
+      const mergedSem = { ...curMatch, subjects: mergedSubjects };
+      if (!existingNames.has(curMatch.name)) {
+        state.semesters.push(mergedSem);
+      } else {
+        const idx = state.semesters.findIndex(s => s.name === curMatch.name);
+        if (idx >= 0) state.semesters[idx] = mergedSem;
+      }
+      showToast(`✓ Grades merged into "${curName}"!`);
+    }
+  }
+
+  // Add new semesters
+  let added = newSems.filter(s => s.name !== curName).length;
+  for (const sem of newSems) {
+    if (sem.name !== curName) {
+      // Auto-mark PS grade subjects as pass/fail
+      sem.subjects = sem.subjects.map(sub => ({
+        ...sub,
+        isPassFail: sub.grade === 'PS' || /^MPU/i.test(sub.code),
+        targetGrade: sub.targetGrade || 'B+',
+      }));
+      state.semesters.push(sem);
+    }
+  }
+
+  if (duplicates.length > 0 && !curMatch) {
+    showToast(`Skipped ${duplicates.length} duplicate semester(s)`);
+  }
+
+  saveState();
+  showToast(`Imported ${added} semester(s)!`);
+  renderDashboard();
+  switchTab('history');
+}
+
+
+// ===================== SCHOOL BILL PDF IMPORT =====================
+let importedBillCourses = [];
+
+function handleBillDrop(e) {
+  e.preventDefault();
+  document.getElementById('bill-upload-zone').classList.remove('dragging');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type === 'application/pdf') processBillPDF(file);
+}
+
+function handleBillUpload(e) {
+  const file = e.target.files[0];
+  if (file) processBillPDF(file);
+  e.target.value = '';
+}
+
+async function processBillPDF(file) {
+  document.getElementById('bill-processing').style.display = 'block';
+  document.getElementById('bill-preview').style.display = 'none';
+
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+
+    let allItems = [];
+    for (let p = 1; p <= pdf.numPages; p++) {
+      const page = await pdf.getPage(p);
+      const content = await page.getTextContent();
+      const viewport = page.getViewport({ scale: 1 });
+      for (const item of content.items) {
+        if (!item.str.trim()) continue;
+        const y = Math.round(viewport.height - item.transform[5]);
+        const x = Math.round(item.transform[4]);
+        allItems.push({ str: item.str.trim(), x, y, page: p });
+      }
+    }
+
+    // Group into rows by Y proximity
+    allItems.sort((a, b) => a.page !== b.page ? a.page - b.page : a.y !== b.y ? a.y - b.y : a.x - b.x);
+    const rows = [];
+    let currentRow = [], lastY = -999, lastPage = -1;
+    for (const item of allItems) {
+      if (item.page !== lastPage || Math.abs(item.y - lastY) > 8) {
+        if (currentRow.length) rows.push(currentRow);
+        currentRow = [item]; lastY = item.y; lastPage = item.page;
+      } else {
+        currentRow.push(item);
+        lastY = (lastY + item.y) / 2;
+      }
+    }
+    if (currentRow.length) rows.push(currentRow);
+
+    const lines = rows.map(row => {
+      row.sort((a, b) => a.x - b.x);
+      return row.map(i => i.str).join(' ');
+    });
+
+    importedBillCourses = parseUTARBill(lines);
+    renderBillPreview(importedBillCourses, lines);
+  } catch(e) {
+    console.error(e);
+    showToast('Error reading bill: ' + e.message);
+  }
+  document.getElementById('bill-processing').style.display = 'none';
+}
+
+function parseUTARBill(lines) {
+  const courses = [];
+  const inlinePattern = /\b([A-Z]{2,5}\d{4,5})\b/;
+  const skipPattern = /TOTAL|SUBTOTAL|TAX|PAYMENT|Classification|CrHr|Qty|Rate|Amount|Item Code|Tax Rate|Tax Amount/i;
+
+  // First pass: merge wrapped continuation lines into the course line above
+  // e.g. "INTRODUCTION TO COMPUTER" on one line, "ORGANISATION AND ARCHITECTURE  3.0  385..." on next
+  const mergedLines = [];
+  for (let i = 0; i < lines.length; i++) {
+    const l = lines[i].trim();
+    if (!l) continue;
+    const hasCourseCode = inlinePattern.test(l);
+    // Continuation line = no course code, not a skip line, not a classification line (010 ...)
+    const isClassLine = /^\d{3}\s+[A-Z]/.test(l);
+    if (!hasCourseCode && !isClassLine && !skipPattern.test(l) && mergedLines.length > 0) {
+      const prev = mergedLines[mergedLines.length - 1];
+      if (inlinePattern.test(prev)) {
+        mergedLines[mergedLines.length - 1] = prev + ' ' + l;
+        continue;
+      }
+    }
+    mergedLines.push(l);
+  }
+
+  // Second pass: extract courses from merged lines
+  for (const line of mergedLines) {
+    const l = line.trim();
+    if (!l || skipPattern.test(l)) continue;
+
+    const codeMatch = l.match(inlinePattern);
+    if (!codeMatch) continue;
+    const code = codeMatch[1];
+    if (/^\d+$/.test(code)) continue;
+
+    const afterCode = l.slice(l.indexOf(code) + code.length).trim();
+
+    // Find credit hour: look for X.0 pattern (UTAR bills use decimal like 2.0, 3.0, 4.0)
+    // This avoids confusing course name numbers like "REPORTING 2" with credits
+    const allNums = [...afterCode.matchAll(/\b(\d+\.0)\b/g)];
+    let credits = 3;
+    for (const m of allNums) {
+      const v = parseFloat(m[1]);
+      if (v >= 1 && v <= 6) { credits = v; break; }
+    }
+    // Fallback: if no X.0 found, look for standalone integer 1-6 not at end of a word
+    if (credits === 3 && allNums.length === 0) {
+      const intNums = [...afterCode.matchAll(/(?<![A-Z])\b([1-6])\b(?!\d)/g)];
+      for (const m of intNums) {
+        const v = parseInt(m[1]);
+        // Make sure it's followed by a larger number (rate) not just end of name
+        const pos = m.index + m[0].length;
+        const rest = afterCode.slice(pos).trim();
+        if (/^\s*\d{3}/.test(rest) || /^\s*-/.test(rest)) { credits = v; break; }
+      }
+    }
+
+    // Name: text before the first X.0 credit pattern, or before first large number
+    let nameRaw = afterCode;
+    const creditMatch = afterCode.match(/\b\d+\.0\b/);
+    if (creditMatch) {
+      nameRaw = afterCode.slice(0, creditMatch.index).trim();
+    } else {
+      nameRaw = afterCode.replace(/\b\d[\d,\.]*.*$/, '').trim();
+    }
+    const name = nameRaw.replace(/\s+/g, ' ').trim() || code;
+
+    if (!courses.find(c => c.code === code)) {
+      courses.push({ code, name, credits });
+    }
+  }
+
+  return courses;
+}
+
+function renderBillPreview(courses, debugLines) {
+  const el = document.getElementById('bill-preview-content');
+  const preview = document.getElementById('bill-preview');
+
+  if (courses.length === 0) {
+    const dbg = debugLines ? `<details style="margin-top:10px"><summary style="cursor:pointer;font-size:11px;color:var(--text3)">▶ Show raw text</summary><pre style="font-size:10px;color:var(--text3);margin-top:6px;white-space:pre-wrap;max-height:200px;overflow-y:auto;background:var(--surface);padding:8px;border-radius:6px">${debugLines.slice(0,60).join('\n')}</pre></details>` : '';
+    el.innerHTML = `<div style="color:var(--red);font-size:13px">⚠ No courses detected. Make sure this is a UTAR tuition fee invoice PDF.</div>${dbg}`;
+    preview.style.display = 'block';
+    return;
+  }
+
+  el.innerHTML = courses.map(c => `
+    <div class="import-subject-row">
+      <span><b style="color:var(--navy)">${c.code}</b> · ${c.name}</span>
+      <span style="font-weight:700;color:var(--navy)">${c.credits} cr</span>
+    </div>`).join('');
+  preview.style.display = 'block';
+}
+
+function confirmBillImport() {
+  if (importedBillCourses.length === 0) return;
+
+  // Ask for semester name
+  const semName = prompt('Enter semester name for these courses (e.g. JANUARY 2026):');
+  if (!semName) return;
+
+  // Reset current subjects and load bill courses
+  subIdCounter = Math.max(subIdCounter, 0);
+  const newSubs = importedBillCourses.map(c => ({
+    id: ++subIdCounter,
+    code: c.code,
+    name: c.name,
+    credits: c.credits,
+    finalPct: 40,
+    targetGrade: 'B+',
+    isPassFail: /^MPU/i.test(c.code),
+    finalPct: /^MPU/i.test(c.code) ? 0 : 40,  // MPU = no final exam
+    cwItems: [
+      { name: 'Assignment', weight: 20, outOf: 100, score: 0 },
+      { name: 'Midterm',    weight: 20, outOf: 100, score: 0 },
+      { name: 'Project',    weight: 20, outOf: 100, score: 0 },
+    ],
+    collapsed: true,
+  }));
+
+  state.currentSubjects = newSubs;
+  state.currentSemName = semName.toUpperCase().trim();
+  saveState();
+
+  // Switch to current sem tab
+  switchTab('current');
+  document.getElementById('cur-sem-name').value = state.currentSemName;
+  renderCurrentSubjects();
+  showToast(`Loaded ${newSubs.length} courses into Current Sem!`);
+}
+
+// ===================== CLEAR DATA =====================
+function clearAllData() {
+  if (!confirm('⚠ Clear ALL data?\n\nThis will delete all semesters, current semester subjects, and settings.\n\nThis cannot be undone. Are you sure?')) return;
+  localStorage.removeItem('utar_cgpa_state');
+  localStorage.removeItem('utar_user_name');
+  state = {
+    targetCGPA: null,
+    semesters: [],
+    currentSubjects: [],
+    currentSemName: '',
+    priorCGPA: null,
+    priorCredits: null,
+  };
+  subIdCounter = 0;
+  document.getElementById('target-cgpa-input').value = '';
+  document.getElementById('cur-sem-name').value = '';
+  document.getElementById('cur-prior-cgpa').value = '';
+  document.getElementById('cur-prior-credits').value = '';
+  renderDashboard();
+  renderCurrentSubjects();
+  showToast('All data cleared.');
+}
+
+// ===================== GREETING =====================
+function saveUserName(name) {
+  if (name) localStorage.setItem('utar_user_name', name.trim());
+  updateGreeting();
+}
+
+function promptEditName() {
+  const current = localStorage.getItem('utar_user_name') || '';
+  const modal = document.getElementById('name-modal');
+  const titleEl = document.getElementById('name-modal-title');
+  const subEl = document.getElementById('name-modal-sub');
+  const input = document.getElementById('name-modal-input');
+  titleEl.textContent = current ? 'Change your name' : 'What should we call you?';
+  subEl.textContent = current ? 'Currently: ' + current : 'Enter your name below';
+  input.value = current;
+  modal.classList.add('open');
+  setTimeout(() => input.focus(), 100);
+}
+
+function confirmName() {
+  const input = document.getElementById('name-modal-input');
+  const name = input.value.trim();
+  if (name) saveUserName(name);
+  document.getElementById('name-modal').classList.remove('open');
+}
+
+function updateGreeting() {
+  const name = localStorage.getItem('utar_user_name') || '';
+
+  const now = new Date();
+  const hour = now.getHours();
+  const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+  const displayName = name ? ', ' + name : '';
+
+  const greetEl = document.getElementById('greeting-text');
+  if (greetEl) greetEl.textContent = greeting + displayName + '!';
+
+  // Update edit button label
+  const editLabel = document.getElementById('edit-name-label');
+  if (editLabel) editLabel.textContent = name ? name : 'Set name';
+
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const dateStr = days[now.getDay()] + ', ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+  const timeStr = now.toLocaleTimeString('en-MY', { hour: '2-digit', minute: '2-digit' });
+
+  const dtEl = document.getElementById('greeting-datetime');
+  if (dtEl) dtEl.textContent = dateStr + '  ·  ' + timeStr;
+}
+
+// Start live clock
+setInterval(updateGreeting, 60000);
+
+// ===================== EXPORT / IMPORT JSON =====================
+function exportData() {
+  const exportPayload = {
+    ...state,
+    userName: localStorage.getItem('utar_user_name') || '',
+    exportedAt: new Date().toISOString(),
+  };
+  const data = JSON.stringify(exportPayload, null, 2);
+  const blob = new Blob([data], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const now = new Date();
+  const dateStr = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
+  a.download = 'utar-cgpa-' + dateStr + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Data exported!');
+}
+
+function importData(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const imported = JSON.parse(ev.target.result);
+      if (imported.semesters) {
+        // Restore userName if present
+        if (imported.userName) {
+          localStorage.setItem('utar_user_name', imported.userName);
+          updateGreeting();
+        }
+        // Strip non-state keys before loading
+        const { userName, exportedAt, ...stateData } = imported;
+        state = stateData;
+        saveState();
+        // Restore UI fields
+        if (state.currentSemName) {
+          const el = document.getElementById('cur-sem-name');
+          if (el) el.value = state.currentSemName;
+        }
+        if (state.currentSubjects && state.currentSubjects.length > 0) {
+          subIdCounter = Math.max(...state.currentSubjects.map(s => s.id), 0);
+          renderCurrentSubjects();
+        }
+        renderDashboard();
+        showToast('Data imported! ' + (state.currentSubjects?.length || 0) + ' current subjects, ' + state.semesters.length + ' semesters.');
+      } else {
+        showToast('Invalid file format');
+      }
+    } catch(err) {
+      showToast('Error reading file');
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+
+// ===================== TOAST =====================
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ===================== INIT =====================
+loadState();
+updateGreeting();
+renderDashboard();
+renderCurrentSubjects();
+
+// Show welcome modal if first time
+if (!localStorage.getItem('utar_user_name')) {
+  setTimeout(() => {
+    document.getElementById('name-modal').classList.add('open');
+    document.getElementById('name-modal-input').focus();
+  }, 500);
+}
+
+// ── PWA: Register Service Worker ────────────────────────────────────────
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js')
+    .then(reg => console.log('SW registered', reg.scope))
+    .catch(err => console.warn('SW registration failed', err));
+}
+
+// ── PWA: Show "Add to Home Screen" install prompt ────────────────────────
+let deferredInstallPrompt = null;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  showInstallBanner();
+});
+
+function showInstallBanner() {
+  const existing = document.getElementById('pwa-install-banner');
+  if (existing) return;
+  const banner = document.createElement('div');
+  banner.id = 'pwa-install-banner';
+  banner.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--navy);color:white;padding:12px 20px;border-radius:12px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:12px;z-index:999;box-shadow:0 4px 20px rgba(0,0,0,0.3);white-space:nowrap';
+  banner.innerHTML = '<span>📱 Install as App</span><button onclick="installPWA()" style="background:var(--yellow);color:#1a0f00;border:none;padding:6px 14px;border-radius:7px;font-weight:700;cursor:pointer;font-size:12px">Install</button><button onclick="this.parentElement.remove()" style="background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:16px;padding:0 4px">✕</button>';
+  document.body.appendChild(banner);
+  setTimeout(() => { if (banner.parentElement) banner.remove(); }, 15000);
+}
+
+function installPWA() {
+  if (!deferredInstallPrompt) return;
+  deferredInstallPrompt.prompt();
+  deferredInstallPrompt.userChoice.then(() => {
+    deferredInstallPrompt = null;
+    const banner = document.getElementById('pwa-install-banner');
+    if (banner) banner.remove();
+  });
+}
+
+// Sync target input on load
+if (state.targetCGPA) {
+  document.getElementById('target-cgpa-input').value = state.targetCGPA;
+  document.getElementById('analysis-target').value = state.targetCGPA;
+}
+if (state.currentSemName) document.getElementById('cur-sem-name').value = state.currentSemName;
+if (state.priorCGPA) document.getElementById('cur-prior-cgpa').value = state.priorCGPA;
+if (state.priorCredits) document.getElementById('cur-prior-credits').value = state.priorCredits;
+
+// Restore current subjects if any
+if (state.currentSubjects && state.currentSubjects.length > 0) {
+  subIdCounter = Math.max(...state.currentSubjects.map(s => s.id), 0);
+  renderCurrentSubjects();
+}
+</script>
+</body>
+</html>
