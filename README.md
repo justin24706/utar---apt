@@ -1,4 +1,4 @@
-# UTAR CGPA Calculator
+# UTAR Academic Performance Tracker
 
 A Progressive Web App (PWA) for UTAR students to track, calculate, and plan their academic performance — works offline, installable on any device.
 
@@ -108,7 +108,7 @@ utar-cgpa/
 
 ## CGPA Grading Reference
 
-This calculator follows the UTAR grading system:
+This app follows the UTAR grading system:
 
 | Grade | Grade Point | Marks |
 |-------|------------|-------|
@@ -129,9 +129,7 @@ This calculator follows the UTAR grading system:
 
 ## Disclaimer
 
-This is an **unofficial** student project and is not affiliated with, endorsed by, or connected to Universiti Tunku Abdul Rahman (UTAR) in any way. All calculations are for reference only — always verify with your official academic transcript.
-
-The UTAR name and logo are used solely to identify compatibility with UTAR's grading system and are the property of Universiti Tunku Abdul Rahman. This project is not affiliated with or endorsed by UTAR.
+This is an **unofficial** student project and is not affiliated with, endorsed by, or connected to Universiti Tunku Abdul Rahman (UTAR) in any way. The UTAR name and logo are used solely to identify compatibility with UTAR's grading system and remain the property of Universiti Tunku Abdul Rahman. All calculations are for reference only — always verify with your official academic transcript.
 
 ---
 
@@ -141,4 +139,4 @@ MIT License — free to use, modify, and distribute. See [LICENSE](LICENSE) for 
 
 ---
 
-*Built for UTAR students*
+*Built for UTAR students · Made by Justin*
